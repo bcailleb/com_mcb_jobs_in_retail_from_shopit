@@ -40,7 +40,6 @@ flutter:
   assets:
     - assets/
     - assets/categories/
-    - assets/logo.png
     - assets/images/
   fonts:
     - family: Metropolis

@@ -67,7 +67,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   Hero(
                     tag: 1,
                     child: Image.asset(
-                      'assets/shopit.png',
+                      Assets.images.shopit.path,
                       height: screenSize.height * 0.09,
                     ),
                   ),
