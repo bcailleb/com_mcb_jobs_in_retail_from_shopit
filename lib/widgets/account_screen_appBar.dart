@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../gen/assets.gen.dart';
 import '../utils/color_themes.dart';
 import '../utils/constants.dart';
 import '../utils/utils.dart';
@@ -31,7 +32,7 @@ class AccountScreenAppBar extends StatelessWidget with PreferredSizeWidget {
                 horizontal: 10,
               ),
               child: Image.asset(
-                'assets/shopit.png',
+                Assets.images.shopit.path,
                 height: screenSize.height * 0.04,
               ),
             ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../gen/assets.gen.dart';
 import '../screens/account_screen.dart';
 import '../screens/add_to_cart/cart_screen.dart';
 import '../screens/home_screen.dart';
@@ -27,13 +28,13 @@ const List<String> categoriesList = [
   "Others"
 ];
 
-const List<String> categoryLogos = [
-  "assets/categories/mobile.png",
-  "assets/categories/fashion.png",
-  "assets/categories/electronics.png",
-  "assets/categories/appliances.png",
-  "assets/categories/books.png",
-  "assets/categories/essential.png",
+List<String> categoryLogos = [
+  Assets.categories.mobile.path,
+  Assets.categories.fashion.path,
+  Assets.categories.electronics.path,
+  Assets.categories.appliances.path,
+  Assets.categories.books.path,
+  Assets.categories.essential.path,
 ];
 
 const List<String> largeAds = [

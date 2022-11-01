@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
+import 'package:com_mcb_jobs_in_retail_from_shopit/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -54,7 +55,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             child: Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('assets/bg.png'),
+                  image: Assets.images.bg.provider(),
                   fit: BoxFit.cover,
                 ),
               ),

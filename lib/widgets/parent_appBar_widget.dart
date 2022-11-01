@@ -8,6 +8,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../gen/assets.gen.dart';
 import '../layout/screen_layout.dart';
 import '../screens/add_to_cart/cart_screen.dart';
 import '../screens/result_screen.dart';
@@ -70,7 +71,7 @@ class ParentAppBarWidget extends StatelessWidget with PreferredSizeWidget {
             Container(
               height: screenSize.height * .05,
               child: Image.asset(
-                'assets/shopit.png',
+                Assets.images.shopit.path,
                 fit: BoxFit.cover,
               ),
             ),

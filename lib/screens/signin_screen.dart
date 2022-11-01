@@ -8,7 +8,7 @@ import '../utils/color_themes.dart';
 import '../utils/utils.dart';
 import '../widgets/Buttons/primary_button.dart';
 import '../widgets/textfield_widget.dart';
-
+import '../gen/assets.gen.dart';
 class SigninScreen extends StatefulWidget {
   const SigninScreen({Key? key}) : super(key: key);
 
@@ -42,7 +42,7 @@ class _SigninScreenState extends State<SigninScreen> {
             child: Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('assets/bg.png'),
+                  image: Assets.images.bg.provider(),
                   fit: BoxFit.cover,
                 ),
               ),
