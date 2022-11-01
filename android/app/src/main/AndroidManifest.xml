@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.com_mcb_jobs_in_retail_from_shopit">
+    package="com.mcb.jobs_in_retail">
    <application
-        android:label="com_mcb_jobs_in_retail_from_shopit"
+        android:label="jobs_in_retail"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
