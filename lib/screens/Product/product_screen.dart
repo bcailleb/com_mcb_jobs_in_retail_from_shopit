@@ -51,7 +51,7 @@ class _ProductScreenState extends State<ProductScreen> {
               ),
               child: Column(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: kAppBarHeight / 2,
                   ),
                   Padding(
@@ -106,14 +106,13 @@ class _ProductScreenState extends State<ProductScreen> {
                     height: screenSize.width * .05,
                   ),
                   PrimaryButton(
-                    child: Text('Buy Now'),
                     color: buttonColor,
                     isLoading: false,
                     onPressed: () {},
+                    child: const Text('Buy Now'),
                   ),
                   sizedBox,
                   PrimaryButton(
-                    child: Text('Add to Cart'),
                     color: lightbuttonColor,
                     isLoading: false,
                     onPressed: () async {
@@ -123,8 +122,9 @@ class _ProductScreenState extends State<ProductScreen> {
                                 productModel: widget.productModel),
                           );
                     },
+                    child: const Text('Add to Cart'),
                   ),
-                  Divider(),
+                  const Divider(),
                   sizedBox,
                   Text(
                     'About this item',
@@ -181,7 +181,7 @@ class _ProductScreenState extends State<ProductScreen> {
                                 ConnectionState.waiting) {
                               return Container();
                             } else {
-                              return snapshot.data!.docs.length == 0
+                              return snapshot.data!.docs.isEmpty
                                   ? Center(
                                       child: Text(
                                         'No reviews found for this product',
@@ -207,7 +207,7 @@ class _ProductScreenState extends State<ProductScreen> {
               ),
             ),
           ),
-          UserDetailsBar(
+          const UserDetailsBar(
             offset: 0,
           ),
         ],

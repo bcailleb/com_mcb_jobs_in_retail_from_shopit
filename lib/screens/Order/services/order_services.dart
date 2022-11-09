@@ -17,7 +17,7 @@ class OrderServices {
         .collection('users')
         .doc(userId)
         .collection('address')
-        .doc(Uuid().v1())
+        .doc(const Uuid().v1())
         .set(address.getJson());
   }
 
@@ -29,10 +29,10 @@ class OrderServices {
         .collection('cart')
         .get();
 
-    snapshot.docs.forEach((snap) {
+    for(var snap in snapshot.docs) {
       ProductModel product = ProductModel.fromJson(snap.data());
       products.add(product);
-    });
+    }
     return products;
   }
 
@@ -56,7 +56,7 @@ class OrderServices {
     required String buyerId,
     required int orderStatus,
   }) async {
-    String orderNumber = Uuid().v4();
+    String orderNumber = const Uuid().v4();
 
     OrderModel order = OrderModel(
       totalPrice: totalPrice,
@@ -83,10 +83,10 @@ class OrderServices {
         .collection('orders')
         .where('buyerId', isEqualTo: buyerId)
         .get();
-    orders.docs.forEach((element) {
+    for (var element in orders.docs) {
       OrderModel order = OrderModel.fromJson(element.data());
       ordersList.add(order);
-    });
+    }
   }
 
   Stream<List<Widget>> showOrdersToUser() async* {
@@ -100,12 +100,12 @@ class OrderServices {
 
     snapshot.forEach(
       (snap) {
-        snap.docs.forEach((element) {
+        for(var element in snap.docs) {
           ProductModel product = ProductModel.fromJson(element.data());
           orderedProducts.add(
             ProductWidget(productModel: product),
           );
-        });
+        }
       },
     );
     yield orderedProducts;

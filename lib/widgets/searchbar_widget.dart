@@ -1,18 +1,13 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../layout/screen_layout.dart';
-import '../screens/add_to_cart/cart_screen.dart';
 import '../screens/result_screen.dart';
 import '../screens/search_screen.dart';
-import '../utils/color_themes.dart';
 import '../utils/constants.dart';
 
 import '../utils/utils.dart';
-import 'bubble_icon_widget.dart';
 
 class SearchBarWidget extends StatelessWidget with PreferredSizeWidget {
   final bool isReadOnly;
@@ -23,16 +18,15 @@ class SearchBarWidget extends StatelessWidget with PreferredSizeWidget {
     Key? key,
     required this.isReadOnly,
     required this.hasBackButton,
-  })  : preferredSize = Size.fromHeight(kAppBarHeight),
+  })  : preferredSize = const Size.fromHeight(kAppBarHeight),
         super(key: key);
 
   @override
-  // TODO: implement preferredSize
   final Size preferredSize;
 
   OutlineInputBorder border = OutlineInputBorder(
     borderRadius: BorderRadius.circular(8),
-    borderSide: BorderSide(
+    borderSide: const BorderSide(
       color: Colors.grey,
       width: 2,
     ),
@@ -44,7 +38,7 @@ class SearchBarWidget extends StatelessWidget with PreferredSizeWidget {
 
     return Container(
       height: kAppBarHeight * 1.5,
-      decoration: BoxDecoration(),
+      decoration: const BoxDecoration(),
       child: SafeArea(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -77,7 +71,7 @@ class SearchBarWidget extends StatelessWidget with PreferredSizeWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => SearchScreen(),
+                        builder: (context) => const SearchScreen(),
                       ),
                     );
                   }
@@ -86,7 +80,7 @@ class SearchBarWidget extends StatelessWidget with PreferredSizeWidget {
                   border: border,
                   focusedBorder: border,
                   hintText: 'Search for products',
-                  hintStyle: TextStyle(
+                  hintStyle: const TextStyle(
                     color: Colors.black,
                   ),
                 ),

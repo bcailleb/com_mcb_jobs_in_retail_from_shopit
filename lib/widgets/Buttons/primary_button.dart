@@ -28,7 +28,7 @@ class PrimaryButton extends StatelessWidget {
           )),
       onPressed: onPressed,
       child: isLoading
-          ? Padding(
+          ? const Padding(
               padding: EdgeInsets.symmetric(
                 vertical: 5,
               ),

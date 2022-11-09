@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 import '../../utils/color_themes.dart';
 
-import '../../utils/utils.dart';
 
 class CustomSquareButton extends StatelessWidget {
   final Widget widget;
@@ -21,7 +20,6 @@ class CustomSquareButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size screenSize = Utils().getScreenSize();
     return GestureDetector(
       onTap: onPressed,
       child: Container(

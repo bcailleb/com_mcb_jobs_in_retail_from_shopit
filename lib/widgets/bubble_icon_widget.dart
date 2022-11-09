@@ -1,14 +1,13 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/color_themes.dart';
 
-class bubbleIcon extends StatelessWidget {
+class BubbleIcon extends StatelessWidget {
   final Icon iconName;
   final String iconValue;
   final VoidCallback onPress;
-  const bubbleIcon({
+  const BubbleIcon({
     Key? key,
     required this.iconName,
     required this.iconValue,
@@ -36,7 +35,7 @@ class bubbleIcon extends StatelessWidget {
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 8,
                     color: Colors.white,
                     fontWeight: FontWeight.bold,

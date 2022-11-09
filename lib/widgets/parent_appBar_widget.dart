@@ -3,17 +3,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'dart:ui';
 
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../gen/assets.gen.dart';
 import '../layout/screen_layout.dart';
-import '../screens/add_to_cart/cart_screen.dart';
-import '../screens/result_screen.dart';
 import '../screens/search_screen.dart';
-import '../utils/color_themes.dart';
 import '../utils/constants.dart';
 
 import '../utils/utils.dart';
@@ -26,11 +20,10 @@ class ParentAppBarWidget extends StatelessWidget with PreferredSizeWidget {
   ParentAppBarWidget({
     Key? key,
     required this.hasBack,
-  })  : preferredSize = Size.fromHeight(kAppBarHeight),
+  })  : preferredSize = const Size.fromHeight(kAppBarHeight),
         super(key: key);
 
   @override
-  // TODO: implement preferredSize
   final Size preferredSize;
 
   @override
@@ -49,7 +42,7 @@ class ParentAppBarWidget extends StatelessWidget with PreferredSizeWidget {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.arrow_back,
                       color: Colors.black,
                     ),
@@ -59,11 +52,11 @@ class ParentAppBarWidget extends StatelessWidget with PreferredSizeWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => SearchScreen(),
+                          builder: (context) => const SearchScreen(),
                         ),
                       );
                     },
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.search_outlined,
                       color: Colors.black,
                     ),
@@ -86,7 +79,7 @@ class ParentAppBarWidget extends StatelessWidget with PreferredSizeWidget {
                 if (!snapshot.hasData) {
                   return Container();
                 }
-                return bubbleIcon(
+                return BubbleIcon(
                   iconName: Icon(
                     Icons.shopping_bag_outlined,
                     size: screenSize.height * 0.03,

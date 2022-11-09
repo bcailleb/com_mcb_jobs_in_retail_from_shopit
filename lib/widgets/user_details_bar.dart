@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../blocs/UserDataBloc/firestore_bloc.dart';
 
-import '../models/userdetail_model.dart';
 import '../utils/color_themes.dart';
 import '../utils/constants.dart';
 import '../utils/utils.dart';
@@ -35,7 +34,7 @@ class UserDetailsBar extends StatelessWidget {
         child: BlocBuilder<FirestoreBloc, FirestoreState>(
           builder: (context, state) {
             if (state is FirestoreLoading) {
-              return Center(
+              return const Center(
                 child: LinearProgressIndicator(
                   color: Colors.white,
                 ),

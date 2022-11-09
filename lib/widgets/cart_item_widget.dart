@@ -6,8 +6,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../blocs/AddToCart/add_to_cart_bloc.dart';
 
 import '../models/product_model.dart';
-import '../resources/firestore_methods.dart';
-import '../screens/add_to_cart/services/add_to_cart_services.dart';
 import '../screens/Product/product_screen.dart';
 import '../utils/color_themes.dart';
 import '../utils/constants.dart';
@@ -15,7 +13,6 @@ import '../utils/utils.dart';
 import '../widgets/Buttons/custom_rounded_button.dart';
 import '../widgets/Buttons/custom_square_button.dart';
 import '../widgets/product_information_widget.dart';
-import 'package:uuid/uuid.dart';
 
 class CartItemWidget extends StatelessWidget {
   final ProductModel product;
@@ -28,10 +25,10 @@ class CartItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     Size screenSize = Utils().getScreenSize();
     return Container(
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       height: screenSize.height / 3,
       width: screenSize.width,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.white,
         border: Border(
           bottom: BorderSide(
@@ -87,7 +84,7 @@ class CartItemWidget extends StatelessWidget {
                 children: [
                   CustomSquareButton(
                     color: backgroundColor,
-                    widget: Icon(
+                    widget: const Icon(
                       Icons.remove,
                     ),
                     onPressed: () {
@@ -113,7 +110,7 @@ class CartItemWidget extends StatelessWidget {
                             .snapshots(),
                         builder: (context, AsyncSnapshot snapshot) {
                           if (!snapshot.hasData) {
-                            return CircularProgressIndicator();
+                            return const CircularProgressIndicator();
                           }
 
                           int value = snapshot.data['quantity'];
@@ -121,7 +118,7 @@ class CartItemWidget extends StatelessWidget {
                             color: Colors.white,
                             widget: Text(
                               value == null ? '0' : value.toString(),
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: buttonColor,
                                 fontWeight: FontWeight.w500,
                               ),
@@ -133,7 +130,7 @@ class CartItemWidget extends StatelessWidget {
                   ),
                   CustomSquareButton(
                     color: backgroundColor,
-                    widget: Icon(
+                    widget: const Icon(
                       Icons.add,
                     ),
                     onPressed: () async {

@@ -17,7 +17,7 @@ class textButton extends StatelessWidget {
         onTap: onTap,
         child: Text(
           label,
-          style: TextStyle(
+          style: const TextStyle(
             color: buttonColor,
             fontSize: 15,
             fontWeight: FontWeight.bold,

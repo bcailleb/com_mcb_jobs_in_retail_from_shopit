@@ -3,13 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../blocs/ProductDataBloc/product_bloc.dart';
-import '../blocs/UserDataBloc/firestore_bloc.dart';
-import '../resources/firestore_methods.dart';
-import '../screens/Order/services/order_services.dart';
 import '../screens/Product/services/product_services.dart';
-import '../utils/color_themes.dart';
 import '../utils/constants.dart';
-import '../utils/utils.dart';
 import '../widgets/banner_widget.dart';
 import '../widgets/parent_appBar_widget.dart';
 import '../widgets/product_show_list.dart';
@@ -42,15 +37,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     controller.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    Size screenSize = Utils().getScreenSize();
-
     return BlocProvider(
       create: (context) => ProductBloc(
         RepositoryProvider.of<ProductServices>(context),
@@ -64,18 +56,18 @@ class _HomeScreenState extends State<HomeScreen> {
             SingleChildScrollView(
               controller: controller,
               child: Column(children: [
-                SizedBox(
+                const SizedBox(
                   height: kAppBarHeight / 2,
                 ),
-                CategoriesView(),
-                BannerAdWidget(),
+                const CategoriesView(),
+                const BannerAdWidget(),
                 BlocBuilder<ProductBloc, ProductState>(
                   builder: (context, state) {
                     if (state is ProductLoading) {
                       return ProductsShowCase(
                         title: '',
-                        children: [],
                         isLoading: true,
+                        children: const [],
                       );
                     }
                     return ProductsShowCase(
@@ -84,15 +76,15 @@ class _HomeScreenState extends State<HomeScreen> {
                     );
                   },
                 ),
-                showProductswithDiscountWidget(
+                const ShowProductsWithDiscountWidget(
                   discount: 50,
                   title: '50% Off Sale',
                 ),
-                showProductswithDiscountWidget(
+                const ShowProductsWithDiscountWidget(
                   discount: 60,
                   title: '60% Off Sale',
                 ),
-                showProductswithDiscountWidget(
+                const ShowProductsWithDiscountWidget(
                   discount: 70,
                   title: 'Shopit Bumper Sale',
                 ),
@@ -108,10 +100,10 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-class showProductswithDiscountWidget extends StatelessWidget {
+class ShowProductsWithDiscountWidget extends StatelessWidget {
   final int discount;
   final String title;
-  const showProductswithDiscountWidget({
+  const ShowProductsWithDiscountWidget({
     Key? key,
     required this.discount,
     required this.title,
@@ -125,8 +117,8 @@ class showProductswithDiscountWidget extends StatelessWidget {
           if (!snapshot.hasData) {
             return ProductsShowCase(
               title: '',
-              children: [],
               isLoading: true,
+              children: const [],
             );
           }
           return ProductsShowCase(

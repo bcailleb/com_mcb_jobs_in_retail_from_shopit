@@ -68,14 +68,14 @@ class ResultScreen extends StatelessWidget {
                     .get(),
             builder: (context, AsyncSnapshot snapshot) {
               if (!snapshot.hasData) {
-                return Center(
+                return const Center(
                   child: CircularProgressIndicator(color: buttonColor),
                 );
               }
               return GridView.builder(
                   scrollDirection: Axis.vertical,
                   itemCount: snapshot.data.docs.length,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     childAspectRatio: 2 / 3,
                   ),

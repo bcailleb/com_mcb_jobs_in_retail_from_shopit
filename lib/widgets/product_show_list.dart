@@ -1,15 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'dart:convert';
 
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../models/product_model.dart';
-import '../resources/firestore_methods.dart';
 import '../utils/color_themes.dart';
 import '../utils/constants.dart';
 import '../utils/utils.dart';
-import '../widgets/product_widget.dart';
 
 class ProductsShowCase extends StatelessWidget {
   final String? title;
@@ -25,18 +20,16 @@ class ProductsShowCase extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size screenSize = Utils().getScreenSize();
-    double height = screenSize.height / 4;
-    double titleHeight = 25;
     return Column(
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         Container(
-          padding: EdgeInsets.all(8),
-          margin: EdgeInsets.all(8),
+          padding: const EdgeInsets.all(8),
+          margin: const EdgeInsets.all(8),
           width: screenSize.width,
           child: isLoading == true
-              ? Center(
+              ? const Center(
                   child: CircularProgressIndicator(
                     backgroundColor: buttonColor,
                   ),

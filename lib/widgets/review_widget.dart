@@ -17,7 +17,7 @@ class ReviewWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size screenSize = Utils().getScreenSize();
-    SizedBox sizedB = SizedBox(
+    SizedBox(
       height: screenSize.width * .03,
     );
     return Card(

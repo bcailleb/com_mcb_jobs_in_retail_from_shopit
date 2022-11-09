@@ -48,7 +48,6 @@ class OrderResultScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 PrimaryButton(
-                  child: Text('Continue shopping'),
                   color: buttonColor,
                   isLoading: false,
                   onPressed: () {
@@ -59,6 +58,7 @@ class OrderResultScreen extends StatelessWidget {
                       ),
                     );
                   },
+                  child: const Text('Continue shopping'),
                 )
               ]),
         ),

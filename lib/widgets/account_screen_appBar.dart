@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 import '../gen/assets.gen.dart';
-import '../utils/color_themes.dart';
 import '../utils/constants.dart';
 import '../utils/utils.dart';
 
@@ -10,7 +7,7 @@ class AccountScreenAppBar extends StatelessWidget with PreferredSizeWidget {
   @override
   final Size preferredSize;
   AccountScreenAppBar({Key? key})
-      : preferredSize = Size.fromHeight(kAppBarHeight),
+      : preferredSize = const Size.fromHeight(kAppBarHeight),
         super(key: key);
 
   @override
@@ -39,13 +36,13 @@ class AccountScreenAppBar extends StatelessWidget with PreferredSizeWidget {
             Row(
               children: [
                 IconButton(
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.notifications_outlined,
                   ),
                   onPressed: () {},
                 ),
                 IconButton(
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.search_outlined,
                   ),
                   onPressed: () {},

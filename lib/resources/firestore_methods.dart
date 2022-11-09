@@ -1,17 +1,10 @@
-import 'dart:typed_data';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:flutter/material.dart';
-import '../models/product_model.dart';
-import '../models/review_model.dart';
-import '../resources/storage_methods.dart';
-import '../widgets/product_widget.dart';
-import '../widgets/result_widgets.dart';
-import 'package:uuid/uuid.dart';
 
 import '../models/userdetail_model.dart';
+import '../resources/storage_methods.dart';
 
 class FirestoreMethods {
   FirebaseFirestore firestore = FirebaseFirestore.instance;

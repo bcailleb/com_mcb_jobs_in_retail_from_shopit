@@ -1,6 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../models/product_model.dart';
 import '../screens/Product/product_screen.dart';
@@ -31,7 +30,7 @@ class ProductWidget extends StatelessWidget {
       child: AspectRatio(
         aspectRatio: 1 / 1,
         child: Container(
-          margin: EdgeInsets.symmetric(
+          margin: const EdgeInsets.symmetric(
             horizontal: 5,
           ),
           decoration: BoxDecoration(
@@ -43,7 +42,7 @@ class ProductWidget extends StatelessWidget {
             ),
           ),
           child: Padding(
-              padding: EdgeInsets.all(
+              padding: const EdgeInsets.all(
                 10,
               ),
               child: Column(

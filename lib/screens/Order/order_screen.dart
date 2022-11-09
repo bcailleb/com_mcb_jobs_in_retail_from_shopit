@@ -5,17 +5,13 @@ import 'package:pay/pay.dart';
 
 import '../../blocs/UserDataBloc/firestore_bloc.dart';
 import '../../models/address_model.dart';
-import '../../models/product_model.dart';
 import '../../screens/Order/services/order_services.dart';
 import '../../screens/Order/services/order_services.dart';
-import '../../screens/account_screen.dart';
 import '../../screens/order_result_screen.dart';
 import '../../utils/color_themes.dart';
 import '../../utils/constants.dart';
 import '../../utils/utils.dart';
-import '../../widgets/Buttons/primary_button.dart';
 import '../../widgets/parent_appBar_widget.dart';
-import '../../widgets/user_details_bar.dart';
 
 import '../../widgets/address_widget.dart';
 import '../../widgets/textfield_widget.dart';
@@ -46,7 +42,6 @@ class _OrderScreenState extends State<OrderScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     paymentItems.add(
       PaymentItem(
@@ -85,7 +80,7 @@ class _OrderScreenState extends State<OrderScreen> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => OrderResultScreen(),
+        builder: (context) => const  OrderResultScreen(),
       ),
     );
   }
@@ -108,7 +103,7 @@ class _OrderScreenState extends State<OrderScreen> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => OrderResultScreen(),
+        builder: (context) => const OrderResultScreen(),
       ),
     );
   }
@@ -150,7 +145,7 @@ class _OrderScreenState extends State<OrderScreen> {
             widget.isLoading
                 ? Container(
                     height: screenSize.height,
-                    child: Center(
+                    child: const Center(
                       child: CircularProgressIndicator(
                         color: buttonColor,
                       ),
@@ -160,7 +155,7 @@ class _OrderScreenState extends State<OrderScreen> {
               child: Stack(
                 children: [
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                    padding:const  EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                     child: Column(
                         mainAxisSize: MainAxisSize.min,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -169,7 +164,7 @@ class _OrderScreenState extends State<OrderScreen> {
                           user != null
                               ? Column(
                                   children: [
-                                    addressWidget(
+                                    AddressWidget(
                                       screenSize: screenSize,
                                       address: user,
                                     ),
@@ -189,7 +184,7 @@ class _OrderScreenState extends State<OrderScreen> {
                               style: addressTextStyle,
                             ),
                           ),
-                          Divider(
+                          const Divider(
                             thickness: 2,
                             color: Colors.black,
                           ),
@@ -253,11 +248,10 @@ class _OrderScreenState extends State<OrderScreen> {
                             width: screenSize.width,
                             height: screenSize.height * 0.05,
                             type: GooglePayButtonType.buy,
-                            // TODO: A CORRIGER style: GooglePayButtonStyle.black,
                             paymentConfigurationAsset: 'gpay.json',
                             onPaymentResult: onGooglePayResult,
                             paymentItems: paymentItems,
-                            loadingIndicator: Center(
+                            loadingIndicator:const  Center(
                                 child: CircularProgressIndicator(
                               color: buttonColor,
                             )),

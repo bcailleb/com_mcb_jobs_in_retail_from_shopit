@@ -22,7 +22,7 @@ class AddToCartBloc extends Bloc<AddToCartEvent, AddToCartState> {
 
     on<DeleteProductFromCart>((event, emit) async {
       emit(AddToCartLoading());
-      final result = await addToCartServices.deleteProductFromCart(event.uid);
+      await addToCartServices.deleteProductFromCart(event.uid);
       emit(AddToCartLoaded());
     });
 

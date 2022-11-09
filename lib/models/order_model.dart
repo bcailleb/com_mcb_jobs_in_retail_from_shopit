@@ -1,17 +1,11 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'dart:convert';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
-
-import '../models/product_model.dart';
 
 class OrderModel {
   List<dynamic>? products;
   final String totalPrice;
   final String shippingAddress;
   final String buyerId;
-  final orderedAt;
+  final DateTime orderedAt;
   final String orderNumber;
   final int orderStatus; // 0 = pending, 1= shipped, 2= received, 3= delivered
 

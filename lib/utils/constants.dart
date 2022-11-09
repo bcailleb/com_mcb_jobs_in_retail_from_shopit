@@ -59,7 +59,7 @@ const List<String> adItemNames = [
   "Pay Bills"
 ];
 
-List<Widget> Demoproducts = [
+List<Widget> demoproducts = [
   ProductWidget(
     productModel: ProductModel(
         productName:
@@ -182,27 +182,27 @@ TextStyle headingStyle = GoogleFonts.aleo(
 // Categories For Product Dropdown
 
 List<DropdownMenuItem<String>> dropDownCategories = [
-  DropdownMenuItem(
+  const DropdownMenuItem(
     value: 'Mobiles',
     child: Text('Mobiles'),
   ),
-  DropdownMenuItem(
+  const DropdownMenuItem(
     value: 'Fashion',
     child: Text('Fashion'),
   ),
-  DropdownMenuItem(
+  const DropdownMenuItem(
     value: 'Electronics',
     child: Text('Electronics'),
   ),
-  DropdownMenuItem(
+  const DropdownMenuItem(
     value: 'Appliances',
     child: Text('Appliances'),
   ),
-  DropdownMenuItem(
+  const DropdownMenuItem(
     value: 'Books',
     child: Text('Books'),
   ),
-  DropdownMenuItem(
+  const DropdownMenuItem(
     value: 'Others',
     child: Text('Others'),
   ),

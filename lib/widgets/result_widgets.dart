@@ -60,7 +60,7 @@ class ResultsWidget extends StatelessWidget {
                 RatingStarWidget(rating: product.rating),
                 Text(
                   '(${product.rating})',
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: activeCyanColor,
                     fontSize: 15,
                   ),

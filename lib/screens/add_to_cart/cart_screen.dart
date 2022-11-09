@@ -21,7 +21,6 @@ class CartScreen extends StatefulWidget {
 class _CartScreenState extends State<CartScreen> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
   }
 
@@ -38,7 +37,7 @@ class _CartScreenState extends State<CartScreen> {
           Center(
             child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: kAppBarHeight / 2,
                 ),
                 Padding(
@@ -55,17 +54,13 @@ class _CartScreenState extends State<CartScreen> {
                       if (!snapshot.hasData) {
                         return Container();
                       }
-                      snapshot.data!.docs.forEach((product) {
+                     for(var product in  snapshot.data!.docs) {
                         double finalPrice =
                             product['price'] * product['quantity'];
                         sum += finalPrice;
-                      });
+                      }
 
                       return PrimaryButton(
-                        child: Text(
-                          'Proceed to buy ${snapshot.data!.docs.length} items',
-                          style: buttonTitleStyle,
-                        ),
                         color: lightbuttonColor,
                         isLoading: false,
                         onPressed: () {
@@ -77,6 +72,10 @@ class _CartScreenState extends State<CartScreen> {
                             ),
                           );
                         },
+                        child: Text(
+                          'Proceed to buy ${snapshot.data!.docs.length} items',
+                          style: buttonTitleStyle,
+                        ),
                       );
                     },
                   ),
@@ -92,7 +91,7 @@ class _CartScreenState extends State<CartScreen> {
                       AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>>
                           snapshot) {
                     if (!snapshot.hasData) {
-                      return Center(
+                      return const Center(
                         child: CircularProgressIndicator(color: buttonColor),
                       );
                     }
@@ -111,7 +110,7 @@ class _CartScreenState extends State<CartScreen> {
               ],
             ),
           ),
-          UserDetailsBar(
+          const UserDetailsBar(
             offset: 0,
           ),
         ],

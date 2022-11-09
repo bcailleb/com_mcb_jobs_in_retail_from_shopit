@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../utils/constants.dart';
 
-class addressWidget extends StatelessWidget {
-  addressWidget({
+class AddressWidget extends StatelessWidget {
+  AddressWidget({
     Key? key,
     required this.screenSize,
     required this.address,
@@ -15,11 +15,11 @@ class addressWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(
+      margin: const EdgeInsets.symmetric(
         horizontal: 10,
         vertical: 10,
       ),
-      padding: EdgeInsets.symmetric(
+      padding: const EdgeInsets.symmetric(
         horizontal: 10,
         vertical: 10,
       ),

@@ -2,10 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rating_dialog/rating_dialog.dart';
-import '../blocs/AuthBloc/auth_bloc.dart';
 import '../blocs/UserDataBloc/firestore_bloc.dart';
 
-import '../resources/firestore_methods.dart';
 import '../utils/color_themes.dart';
 import '../utils/constants.dart';
 import '../utils/utils.dart';

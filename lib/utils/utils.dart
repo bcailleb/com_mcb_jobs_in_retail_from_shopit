@@ -18,7 +18,7 @@ class Utils {
         content: Text(
           message,
           textAlign: TextAlign.center,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.black,
           ),
         ),

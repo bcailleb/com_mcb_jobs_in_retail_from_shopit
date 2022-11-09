@@ -14,7 +14,7 @@ import '../widgets/Buttons/primary_button.dart';
 import '../widgets/textfield_widget.dart';
 
 class SellScreen extends StatefulWidget {
-  SellScreen({Key? key}) : super(key: key);
+  const SellScreen({Key? key}) : super(key: key);
 
   @override
   State<SellScreen> createState() => _SellScreenState();
@@ -38,7 +38,6 @@ class _SellScreenState extends State<SellScreen> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     productNameController.dispose();
     priceController.dispose();
@@ -51,7 +50,7 @@ class _SellScreenState extends State<SellScreen> {
     return Scaffold(
       body: SafeArea(
         child: isLoading
-            ? Center(
+            ? const Center(
                 child: CircularProgressIndicator(),
               )
             : SingleChildScrollView(
@@ -89,7 +88,7 @@ class _SellScreenState extends State<SellScreen> {
                                           });
                                         }
                                       },
-                                      icon: Icon(
+                                      icon: const Icon(
                                         Icons.add,
                                         color: Colors.white,
                                       ),
@@ -100,15 +99,15 @@ class _SellScreenState extends State<SellScreen> {
                             ],
                           ),
                         ),
-                        Divider(),
+                        const Divider(),
                         Expanded(
                           child: Container(
                             height: screenSize.height * 0.1,
-                            padding: EdgeInsets.symmetric(
+                            padding: const EdgeInsets.symmetric(
                               horizontal: 20,
                               vertical: 10,
                             ),
-                            margin: EdgeInsets.all(5),
+                            margin: const EdgeInsets.all(5),
                             decoration: BoxDecoration(
                                 border: Border.all(
                                   color: Colors.grey,
@@ -163,7 +162,7 @@ class _SellScreenState extends State<SellScreen> {
                                     hintText:
                                         'Click + Button to add item description',
                                     prefixIcon: IconButton(
-                                      icon: Icon(
+                                      icon: const Icon(
                                         Icons.add,
                                         color: Colors.black,
                                       ),
@@ -186,10 +185,10 @@ class _SellScreenState extends State<SellScreen> {
                                         descriptionController.clear();
                                       },
                                     ),
-                                    hintStyle: TextStyle(fontSize: 15),
+                                    hintStyle: const TextStyle(fontSize: 15),
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(4),
-                                      borderSide: BorderSide(
+                                      borderSide: const BorderSide(
                                         color: Colors.grey,
                                         width: 1,
                                       ),
@@ -209,7 +208,7 @@ class _SellScreenState extends State<SellScreen> {
                                 DropdownButton<String>(
                                   isExpanded: true,
                                   iconEnabledColor: buttonColor,
-                                  underline: SizedBox(),
+                                  underline: const SizedBox(),
                                   style: GoogleFonts.aleo(
                                     fontSize: 15,
                                     color: Colors.black,
@@ -234,7 +233,7 @@ class _SellScreenState extends State<SellScreen> {
                                       MainAxisAlignment.spaceEvenly,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    radioButtonWidget(
+                                    RadioButtonWidget(
                                       selected: selected,
                                       title: 'None',
                                       buttonValue: 1,
@@ -244,7 +243,7 @@ class _SellScreenState extends State<SellScreen> {
                                         });
                                       },
                                     ),
-                                    radioButtonWidget(
+                                    RadioButtonWidget(
                                       selected: selected,
                                       title: '50%',
                                       buttonValue: 2,
@@ -258,7 +257,7 @@ class _SellScreenState extends State<SellScreen> {
                                 ),
                                 Row(
                                   children: [
-                                    radioButtonWidget(
+                                    RadioButtonWidget(
                                       selected: selected,
                                       title: '60%',
                                       buttonValue: 3,
@@ -268,7 +267,7 @@ class _SellScreenState extends State<SellScreen> {
                                         });
                                       },
                                     ),
-                                    radioButtonWidget(
+                                    RadioButtonWidget(
                                       selected: selected,
                                       title: '70%',
                                       buttonValue: 4,
@@ -292,7 +291,6 @@ class _SellScreenState extends State<SellScreen> {
                             return BlocBuilder<ProductBloc, ProductState>(
                               builder: (context, state) {
                                 return PrimaryButton(
-                                  child: Text('Sell', style: buttonTitleStyle),
                                   color: buttonColor,
                                   isLoading: false,
                                   onPressed: () async {
@@ -315,11 +313,12 @@ class _SellScreenState extends State<SellScreen> {
                                           ),
                                         );
                                     await Future.delayed(
-                                      Duration(seconds: 5),
+                                      const Duration(seconds: 5),
                                     );
                                     Navigator.pop(context);
                                     productDescription.clear();
                                   },
+                                  child: Text('Sell', style: buttonTitleStyle),
                                 );
                               },
                             );
@@ -329,12 +328,12 @@ class _SellScreenState extends State<SellScreen> {
                           height: screenSize.height * .01,
                         ),
                         PrimaryButton(
-                          child: Text('Back', style: buttonTitleStyle),
                           color: lightbuttonColor,
                           isLoading: false,
                           onPressed: () {
                             Navigator.pop(context);
                           },
+                          child: Text('Back', style: buttonTitleStyle),
                         )
                       ],
                     ),
@@ -346,11 +345,11 @@ class _SellScreenState extends State<SellScreen> {
   }
 }
 
-class radioButtonWidget extends StatelessWidget {
+class RadioButtonWidget extends StatelessWidget {
   final String title;
   final int buttonValue;
   final ValueChanged<int?> onChanged;
-  const radioButtonWidget({
+  const RadioButtonWidget({
     Key? key,
     required this.title,
     required this.buttonValue,

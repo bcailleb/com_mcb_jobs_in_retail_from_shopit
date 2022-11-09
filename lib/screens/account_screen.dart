@@ -1,10 +1,8 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../blocs/UserDataBloc/firestore_bloc.dart';
-import '../models/product_model.dart';
 import '../screens/Order/services/order_services.dart';
 import '../screens/sell_screen.dart';
 import '../utils/color_themes.dart';
@@ -12,7 +10,6 @@ import '../utils/constants.dart';
 import '../widgets/account_screen_appBar.dart';
 import '../widgets/Buttons/primary_button.dart';
 import '../widgets/product_show_list.dart';
-import '../widgets/product_widget.dart';
 
 import '../utils/utils.dart';
 
@@ -36,35 +33,35 @@ class _AccountScreenState extends State<AccountScreen> {
           height: screenSize.height,
           width: screenSize.width,
           child: Column(children: [
-            user_intro_widget(),
+           const  UserIntroWidget(),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: PrimaryButton(
-                child: Text('Sign Out'),
                 color: buttonColor,
                 isLoading: false,
                 onPressed: () {
                   FirebaseAuth.instance.signOut();
                 },
+                child: const Text('Sign Out'),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: PrimaryButton(
-                child: Text('Sell'),
                 color: lightbuttonColor,
                 isLoading: false,
                 onPressed: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => SellScreen(),
+                      builder: (context) => const SellScreen(),
                     ),
                   );
                 },
+                child: const Text('Sell'),
               ),
             ),
-            Divider(),
+            const Divider(),
             Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
@@ -72,7 +69,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     stream: OrderServices().showOrdersToUser(),
                     builder: (context, AsyncSnapshot<List<Widget>> snapshot) {
                       if (!snapshot.hasData) {
-                        return Center(
+                        return const Center(
                           child: CircularProgressIndicator(
                             color: buttonColor,
                           ),
@@ -89,13 +86,13 @@ class _AccountScreenState extends State<AccountScreen> {
                       //   );
                       // });
                       return ProductsShowCase(
-                        children: snapshot.data,
                         title: "Your Orders",
+                        children: snapshot.data,
                       );
                     },
                   ),
                 )),
-            Divider(),
+            const Divider(),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Align(
@@ -122,10 +119,10 @@ class _AccountScreenState extends State<AccountScreen> {
                             color: Colors.black,
                           ),
                         ),
-                        subtitle: Text('Address- Deopa Building, near chungi'),
+                        subtitle: const Text('Address- Deopa Building, near chungi'),
                         trailing: IconButton(
                           onPressed: () {},
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.check,
                             color: Colors.green,
                           ),
@@ -139,8 +136,8 @@ class _AccountScreenState extends State<AccountScreen> {
   }
 }
 
-class user_intro_widget extends StatelessWidget {
-  const user_intro_widget({
+class UserIntroWidget extends StatelessWidget {
+  const UserIntroWidget({
     Key? key,
   }) : super(key: key);
 
@@ -197,8 +194,8 @@ class user_intro_widget extends StatelessWidget {
                 },
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(
+            const Padding(
+              padding: EdgeInsets.only(
                 right: 20,
               ),
               child: CircleAvatar(

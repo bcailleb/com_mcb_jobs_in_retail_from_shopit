@@ -24,7 +24,7 @@ const List<Color> backgroundGradient = [
 ];
 List<Color> backgroundGradient1 = [
   Colors.white,
-  Color.fromARGB(255, 48, 105, 151),
+  const Color.fromARGB(255, 48, 105, 151),
   Colors.white,
 ];
 const List<Color> lightBackgroundaGradient = [
