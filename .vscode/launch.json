@@ -1,0 +1,52 @@
+{
+    // Utilisez IntelliSense pour en savoir plus sur les attributs possibles.
+    // Pointez pour afficher la description des attributs existants.
+    // Pour plus d'informations, visitez : https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "com_mcb_jobs_in_retail_from_shopit",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release",
+            "args": [
+                "-d",
+                "chrome",
+                "--web-renderer",
+                "html",
+            ]
+        },
+        {
+            "name": "com_mcb_jobs_in_retail_from_shopit (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "com_mcb_jobs_in_retail_from_shopit (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "pay_platform_interface",
+            "cwd": "build\\flutter_assets\\packages\\pay_platform_interface",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "pay_platform_interface (profile mode)",
+            "cwd": "build\\flutter_assets\\packages\\pay_platform_interface",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "pay_platform_interface (release mode)",
+            "cwd": "build\\flutter_assets\\packages\\pay_platform_interface",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
