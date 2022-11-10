@@ -102,6 +102,7 @@ class ProductModel {
     };
   }
 
+static String collectionName = 'products';
   @override
   String toString() {
     return 'ProductModel(productName: $productName, imgUrl: $imgUrl, price: $price, discount: $discount, description: $description, uid: $uid, category: $category, sellerName: $sellerName, sellerUid: $sellerUid, rating: $rating, numberOfRating: $numberOfRating, quantity: $quantity)';

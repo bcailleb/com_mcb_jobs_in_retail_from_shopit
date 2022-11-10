@@ -3,7 +3,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../../../models/address_model.dart';
 import '../../../models/order_model.dart';
+import '../../../models/cart_model.dart';
 import '../../../models/product_model.dart';
+import '../../../models/userdetail_model.dart';
 import '../../../widgets/product_widget.dart';
 import 'package:uuid/uuid.dart';
 
@@ -14,9 +16,9 @@ class OrderServices {
 
   Future uploadUserAddress(AddressModel address) async {
     await firestore
-        .collection('users')
+        .collection(UserDetailModel.collectionName)
         .doc(userId)
-        .collection('address')
+        .collection(AddressModel.collectionName)
         .doc(const Uuid().v1())
         .set(address.getJson());
   }
@@ -24,9 +26,9 @@ class OrderServices {
   Future<List<ProductModel>> getOrderedProducts() async {
     List<ProductModel> products = [];
     QuerySnapshot<Map<String, dynamic>> snapshot = await firestore
-        .collection('users')
+        .collection(UserDetailModel.collectionName)
         .doc(userId)
-        .collection('cart')
+        .collection(CartModel.collectionName)
         .get();
 
     for(var snap in snapshot.docs) {
@@ -41,9 +43,9 @@ class OrderServices {
 
     products.forEach((product) async {
       await firestore
-          .collection('users')
+          .collection(UserDetailModel.collectionName)
           .doc(userId)
-          .collection('orders')
+          .collection(OrderModel.collectionName)
           .doc(product.uid)
           .set(product.getJson());
     });
@@ -67,20 +69,20 @@ class OrderServices {
     );
     products.forEach((product) async {
       await firestore
-          .collection('orders')
+          .collection(OrderModel.collectionName)
           .doc(orderNumber)
-          .collection('products')
+          .collection(ProductModel.collectionName)
           .doc(product.uid)
           .set(product.getJson());
     });
-    await firestore.collection('orders').doc(orderNumber).set(order.getJson());
+    await firestore.collection(OrderModel.collectionName).doc(orderNumber).set(order.getJson());
     await OrderServices().uploadOrderedProductsToUser();
   }
 
   Future getOrderDetails(String buyerId) async {
     List<OrderModel> ordersList = [];
     final QuerySnapshot<Map<String, dynamic>> orders = await firestore
-        .collection('orders')
+        .collection(OrderModel.collectionName)
         .where('buyerId', isEqualTo: buyerId)
         .get();
     for (var element in orders.docs) {
@@ -93,9 +95,9 @@ class OrderServices {
     List<Widget> orderedProducts = [];
     Stream<QuerySnapshot<Map<String, dynamic>>> snapshot = FirebaseFirestore
         .instance
-        .collection('users')
+        .collection(UserDetailModel.collectionName)
         .doc(FirebaseAuth.instance.currentUser!.uid)
-        .collection('orders')
+        .collection(OrderModel.collectionName)
         .snapshots();
 
     snapshot.forEach(
@@ -117,9 +119,9 @@ class OrderServices {
 //     List<ProductModel> prodcutList = [];
 
 //     final QuerySnapshot<Map<String, dynamic>> products = await firestore
-//         .collection('orders')
+//         .collection(OrderModel.collectionName)
 //         .doc(orderId)
-//         .collection('products')
+//         .collection(ProductModel.collectionName)
 //         .get();
 
 //     products.docs.forEach((element) {

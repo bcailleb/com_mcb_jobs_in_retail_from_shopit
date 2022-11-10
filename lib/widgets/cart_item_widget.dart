@@ -6,6 +6,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../blocs/AddToCart/add_to_cart_bloc.dart';
 
 import '../models/product_model.dart';
+import '../models/userdetail_model.dart';
+import '../models/cart_model.dart';
 import '../screens/Product/product_screen.dart';
 import '../utils/color_themes.dart';
 import '../utils/constants.dart';
@@ -103,9 +105,9 @@ class CartItemWidget extends StatelessWidget {
                     ),
                     child: StreamBuilder(
                         stream: FirebaseFirestore.instance
-                            .collection('users')
+                            .collection(UserDetailModel.collectionName)
                             .doc(FirebaseAuth.instance.currentUser!.uid)
-                            .collection('cart')
+                            .collection(CartModel.collectionName)
                             .doc(product.uid)
                             .snapshots(),
                         builder: (context, AsyncSnapshot snapshot) {

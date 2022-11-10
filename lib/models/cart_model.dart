@@ -26,4 +26,7 @@ class CartModel {
     required this.numberOfRating,
     required this.quantity,
   });
+  static String collectionName = 'cart';
 }
+
+

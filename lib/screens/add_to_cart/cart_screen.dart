@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../../models/product_model.dart';
+import '../../models/userdetail_model.dart';
+import '../../models/cart_model.dart';
 import '../../screens/Order/order_screen.dart';
 import '../../utils/color_themes.dart';
 import '../../utils/constants.dart';
@@ -44,9 +46,9 @@ class _CartScreenState extends State<CartScreen> {
                   padding: const EdgeInsets.all(8.0),
                   child: StreamBuilder(
                     stream: FirebaseFirestore.instance
-                        .collection('users')
+                        .collection(UserDetailModel.collectionName)
                         .doc(FirebaseAuth.instance.currentUser!.uid)
-                        .collection('cart')
+                        .collection(CartModel.collectionName)
                         .snapshots(),
                     builder: (context,
                         AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>>
@@ -83,9 +85,9 @@ class _CartScreenState extends State<CartScreen> {
                 Expanded(
                     child: StreamBuilder(
                   stream: FirebaseFirestore.instance
-                      .collection('users')
+                      .collection(UserDetailModel.collectionName)
                       .doc(FirebaseAuth.instance.currentUser!.uid)
-                      .collection('cart')
+                      .collection(CartModel.collectionName)
                       .snapshots(),
                   builder: (context,
                       AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>>

@@ -10,4 +10,5 @@ class AddressModel {
       'address': address,
     };
   }
+  static String collectionName = 'address';
 }

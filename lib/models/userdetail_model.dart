@@ -21,6 +21,7 @@ class UserDetailModel {
     );
   }
 
+  static String collectionName = 'users';
   @override
   String toString() => 'UserDetailModel(name: $name, address: $address)';
 }

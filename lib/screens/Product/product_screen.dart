@@ -170,9 +170,9 @@ class _ProductScreenState extends State<ProductScreen> {
                   SizedBox(
                       child: StreamBuilder(
                           stream: FirebaseFirestore.instance
-                              .collection('products')
+                              .collection(ProductModel.collectionName)
                               .doc(widget.productModel.uid)
-                              .collection('reviews')
+                              .collection(ReviewModel.collectionName)
                               .snapshots(),
                           builder: (context,
                               AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>>

@@ -13,14 +13,14 @@ class FirestoreMethods {
   StorageMethods storageMethods = StorageMethods();
 
   Future uploadUserDetails({required UserDetailModel user}) async {
-    await firestore.collection('users').doc(firebaseAuth.currentUser!.uid).set(
+    await firestore.collection(UserDetailModel.collectionName).doc(firebaseAuth.currentUser!.uid).set(
           user.getJson(),
         );
   }
 
   Future<UserDetailModel> getUserDetails() async {
     final userSnap = await firestore
-        .collection('users')
+        .collection(UserDetailModel.collectionName)
         .doc(firebaseAuth.currentUser!.uid)
         .get();
 
@@ -31,7 +31,7 @@ class FirestoreMethods {
 }
   
 //   Stream<List<ProductModel>> getAllProducts() {
-//     return firestore.collection('products').snapshots().map((snapshot) {
+//     return firestore.collection(ProductModel.collectionName).snapshots().map((snapshot) {
 //       return snapshot.docs
 //           .map((doc) => ProductModel.fromSnapshot(doc))
 //           .toList();

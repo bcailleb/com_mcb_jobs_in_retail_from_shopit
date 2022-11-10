@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 
 import '../gen/assets.gen.dart';
 import '../layout/screen_layout.dart';
+import '../models/userdetail_model.dart';
+import '../models/cart_model.dart';
 import '../screens/search_screen.dart';
 import '../utils/constants.dart';
 
@@ -70,9 +72,9 @@ class ParentAppBarWidget extends StatelessWidget with PreferredSizeWidget {
             ),
             StreamBuilder(
               stream: FirebaseFirestore.instance
-                  .collection('users')
+                  .collection(UserDetailModel.collectionName)
                   .doc(FirebaseAuth.instance.currentUser!.uid)
-                  .collection('cart')
+                  .collection(CartModel.collectionName)
                   .snapshots(),
               builder: (context,
                   AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot) {

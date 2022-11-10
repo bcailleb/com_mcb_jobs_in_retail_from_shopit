@@ -23,5 +23,8 @@ class ReviewModel {
       'userRating': userRating,
       'description': description,
     };
+
   }
+  static String collectionName = 'reviews';
 }
+

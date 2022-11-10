@@ -40,7 +40,7 @@ class OrderModel {
       'orderNumber': orderNumber,
     };
   }
-
+ static String collectionName = 'orders';
   @override
   String toString() {
     return 'OrderModel(product: $products, totalPrice: $totalPrice, shippingAddress: $shippingAddress, buyerId: $buyerId, orderNumber: $orderNumber, orderedAt: $orderedAt)';
