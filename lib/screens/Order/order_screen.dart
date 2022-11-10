@@ -6,23 +6,21 @@ import 'package:pay/pay.dart';
 import '../../blocs/UserDataBloc/firestore_bloc.dart';
 import '../../models/address_model.dart';
 import '../../screens/Order/services/order_services.dart';
-import '../../screens/Order/services/order_services.dart';
 import '../../screens/order_result_screen.dart';
 import '../../utils/color_themes.dart';
 import '../../utils/constants.dart';
 import '../../utils/utils.dart';
-import '../../widgets/parent_appBar_widget.dart';
-
 import '../../widgets/address_widget.dart';
+import '../../widgets/parent_appBar_widget.dart';
 import '../../widgets/textfield_widget.dart';
 
 final _addressFormKey = GlobalKey<FormState>();
 
 class OrderScreen extends StatefulWidget {
   final String totalAmount;
-  bool isLoading = false;
+  final bool isLoading = false;
 
-  OrderScreen({
+  const OrderScreen({
     Key? key,
     required this.totalAmount,
   }) : super(key: key);

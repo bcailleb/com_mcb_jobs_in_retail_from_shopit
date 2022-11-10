@@ -20,7 +20,7 @@ class ProductInformationWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size screenSize = Utils().getScreenSize();
-    SizedBox spaceBtw = SizedBox(
+    SizedBox spaceBtw = const SizedBox(
       height: 7,
     );
 
@@ -64,7 +64,7 @@ class ProductInformationWidget extends StatelessWidget {
               ),
               TextSpan(
                 text: sellerName,
-                style: TextStyle(
+                style: const  TextStyle(
                   color: lightbuttonColor,
                   fontWeight: FontWeight.w500,
                 ),
