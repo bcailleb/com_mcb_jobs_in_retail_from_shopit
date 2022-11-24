@@ -10,9 +10,11 @@ import '../screens/signin_screen.dart';
 
 import '../utils/color_themes.dart';
 
+import '../utils/message_constant.dart';
+import '../utils/translate.dart';
 import '../utils/utils.dart';
 import '../widgets/Buttons/primary_button.dart';
-import '../widgets/Buttons/text_button.dart';
+import '../widgets/Buttons/custom_text_button.dart';
 import '../widgets/textfield_widget.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -39,8 +41,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
     passwordController.dispose();
     addressController.dispose();
     super.dispose();
-
-    // TODO: implement dispose
   }
 
   @override
@@ -51,7 +51,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           height: screenSize.height,
           width: screenSize.width,
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
             child: Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
@@ -77,43 +77,43 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       child: Container(
                         height: screenSize.height * 0.85,
                         width: screenSize.width * 0.9,
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(),
+                        padding: const EdgeInsets.all(10),
+                        decoration: const BoxDecoration(),
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Text(
-                              'Sign Up',
+                              translate(context)!.signup_title,
                               style: GoogleFonts.aleo(
                                 fontSize: 26,
                                 fontWeight: FontWeight.w700,
                               ),
                             ),
                             TextFieldWidget(
-                              title: "Name",
+                              title: translate(context)!.name_input,
                               controller: nameController,
                               obsecureText: false,
-                              hintText: 'Enter your name',
+                              hintText: pleaseEnterField(context,constNameInput),
                             ),
                             TextFieldWidget(
-                              title: "Address",
+                              title: translate(context)!.address_input,
                               controller: addressController,
                               obsecureText: false,
-                              hintText: 'Enter your address',
+                              hintText: pleaseEnterField(context,constAddress),
                             ),
                             TextFieldWidget(
-                              title: "Email",
+                              title: translate(context)!.email_input,
                               controller: emailController,
                               obsecureText: false,
-                              hintText: 'Enter your email',
+                              hintText:  pleaseEnterField(context,constEmailInput),
                             ),
                             TextFieldWidget(
-                              title: "Password",
+                              title: translate(context)!.password_input,
                               controller: passwordController,
                               obsecureText: true,
-                              hintText: 'Enter your password',
+                              hintText: pleaseEnterField(context,constPasswordInput),
                             ),
                             Center(
                               child: Hero(
@@ -121,12 +121,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 child: BlocBuilder<AuthBloc, AuthState>(
                                   builder: (context, state) {
                                     return PrimaryButton(
-                                      child: Text(
-                                        'Sign up',
-                                        style: TextStyle(
-                                          fontSize: 15,
-                                        ),
-                                      ),
                                       color: buttonColor,
                                       isLoading:
                                           state is AuthLoading ? true : false,
@@ -142,18 +136,24 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                               ),
                                             );
                                       },
+                                      child: Text(
+                                        translate(context)!.signup_button,
+                                        style: const TextStyle(
+                                          fontSize: 15,
+                                        ),
+                                      ),
                                     );
                                   },
                                 ),
                               ),
                             ),
-                            textButton(
-                              label: 'Already a customer? Login Now!',
+                            CustomTextButton(
+                              label: translate(context)!.already_an_account_title,
                               onTap: () {
                                 Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => SigninScreen(),
+                                    builder: (context) => const SigninScreen(),
                                   ),
                                 );
                               },
@@ -183,7 +183,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                           //         address: addressController.text,
                                           //         email: emailController.text,
                                           //         password: passwordController.text);
-                                          // if (output == 'Registration Successful') {
+                                          // if (output == constRegistrationSuccess) {
                                           //   Utils().showsnackBar(
                                           //     context: context,
                                           //     message: output,

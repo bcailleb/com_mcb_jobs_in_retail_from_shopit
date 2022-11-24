@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../blocs/AuthBloc/auth_bloc.dart';
-import '../resources/auth_methods.dart';
 import '../screens/signup_screen.dart';
 import '../utils/color_themes.dart';
+import '../utils/message_constant.dart';
+import '../utils/translate.dart';
 import '../utils/utils.dart';
 import '../widgets/Buttons/primary_button.dart';
 import '../widgets/textfield_widget.dart';
@@ -23,7 +24,6 @@ class _SigninScreenState extends State<SigninScreen> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     emailController.dispose();
     passwordController.dispose();
@@ -38,7 +38,7 @@ class _SigninScreenState extends State<SigninScreen> {
           height: screenSize.height,
           width: screenSize.width,
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
             child: Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
@@ -53,37 +53,37 @@ class _SigninScreenState extends State<SigninScreen> {
                   Hero(
                     tag: 1,
                     child: Image.asset(
-                      Assets.images.shopit.path,
+                      Assets.images.logoNormal.path,
                       height: screenSize.height * 0.09,
                     ),
                   ),
                   Container(
                     height: screenSize.height * 0.5,
                     width: screenSize.width * 0.8,
-                    padding: EdgeInsets.all(15),
+                    padding: const EdgeInsets.all(15),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Text(
-                          'Sign in',
+                          translate(context)!.login_title,
                           style: GoogleFonts.aleo(
                             fontSize: 26,
                             fontWeight: FontWeight.w700,
                           ),
                         ),
                         TextFieldWidget(
-                          title: "Email",
+                          title: translate(context)!.email_input,
                           controller: emailController,
                           obsecureText: false,
-                          hintText: 'Enter your email',
+                          hintText: pleaseEnterField(context,constNameInput),
                         ),
                         TextFieldWidget(
-                          title: "Password",
+                          title: translate(context)!.password_input,
                           controller: passwordController,
                           obsecureText: true,
-                          hintText: 'Enter your password',
+                          hintText: pleaseEnterField(context,constPasswordInput),
                         ),
                         Center(
                           child: Hero(
@@ -91,12 +91,6 @@ class _SigninScreenState extends State<SigninScreen> {
                             child: BlocBuilder<AuthBloc, AuthState>(
                               builder: (context, state) {
                                 return PrimaryButton(
-                                  child: Text(
-                                    'Sign in',
-                                    style: TextStyle(
-                                      fontSize: 15,
-                                    ),
-                                  ),
                                   color: buttonColor,
                                   isLoading:
                                       state is AuthLoading ? true : false,
@@ -109,6 +103,12 @@ class _SigninScreenState extends State<SigninScreen> {
                                           ),
                                         );
                                   },
+                                  child: Text(
+                                    translate(context)!.login_button,
+                                    style: const TextStyle(
+                                      fontSize: 15,
+                                    ),
+                                  ),
                                 );
                               },
                             ),
@@ -126,11 +126,11 @@ class _SigninScreenState extends State<SigninScreen> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.symmetric(
+                        padding: const EdgeInsets.symmetric(
                           horizontal: 10,
                         ),
                         child: Text(
-                          'New to Shop It?',
+                          translate(context)!.no_account_label,
                           style: GoogleFonts.acme(
                             color: buttonColor,
                             fontSize: 16,
@@ -149,24 +149,23 @@ class _SigninScreenState extends State<SigninScreen> {
                     height: screenSize.height * 0.01,
                   ),
                   PrimaryButton(
-                    child: Text(
-                      'Create new account',
-                      style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w600,
-                        color: buttonColor,
-                      ),
-                    ),
                     color: Colors.grey[200]!,
                     isLoading: false,
                     onPressed: () {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => SignUpScreen(),
+                          builder: (context) => const SignUpScreen(),
                         ),
                       );
                     },
+                    child: Text(translate(context)!.signup_title,
+                      style: const TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w600,
+                        color: buttonColor,
+                      ),
+                    ),
                   )
                 ],
               ),
@@ -177,27 +176,3 @@ class _SigninScreenState extends State<SigninScreen> {
     );
   }
 }
-
-
-
-                                // setState(() {
-                                //   isLoading = true;
-                                // });
-                                // String output = await authMethods.signInUser(
-                                //   email: emailController.text,
-                                //   password: passwordController.text,
-                                // );
-                                // if (output == 'Login Successful') {
-                                //   Utils().showsnackBar(
-                                //     context: context,
-                                //     message: output,
-                                //   );
-                                // } else {
-                                //   Utils().showsnackBar(
-                                //     context: context,
-                                //     message: output,
-                                //   );
-                                // }
-                                // setState(() {
-                                //   isLoading = false;
-                                // });
