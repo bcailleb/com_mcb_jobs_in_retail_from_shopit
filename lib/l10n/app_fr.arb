@@ -1,0 +1,180 @@
+{
+  "@_USAGE": {
+    "description": "t(context)!.xx "
+  },
+  "@_COMMON": {
+    "description": "message générique"
+  },
+  "mandatoryFieldGen": "Ce champ ne peut être vide",
+  "@mandatoryFieldGen": {
+    "description": "Mandatory field"
+  },
+  "mandatoryField": "Le champ '{fieldName}' ne peut être vide",
+  "@mandatoryField": {
+    "type": "text",
+    "description": "Named Mandatory field",
+    "placeholders": {
+      "fieldName": {}
+    }
+  },
+  "pleaseEnterField": "Veuillez saisir {fieldName}",
+  "@pleaseEnterField": {
+    "type": "text",
+    "description": "Named Mandatory field",
+    "placeholders": {
+      "fieldName": {}
+    }
+  },
+  "confirmField": "Confirmer '{fieldName}'",
+  "@confirmField": {
+    "type": "text",
+    "description": "Confirm Field",
+    "placeholders": {
+      "fieldName": {}
+    }
+  },
+  "newMessages": "{newMessages, plural, =0 {No new messages} =1 {One new message} other {{newMessages} new messages}}",
+  "@newMessages": {
+    "type": "text",
+    "description": "Number of new messages in inbox.",
+    "placeholders": {
+      "newMessages": {}
+    }
+  },
+  "@_LOGIN_SCREEN": {
+    "description": "Widget login_screen"
+  },
+  "login_title": "Connectez vous ...",
+  "@login_title": {
+    "description": "Title for the sign in up page"
+  },
+  "login_detail_title": "Saisir vos informations pour vous connecter",
+  "@login_detail_title": {
+    "description": "Add your details to login"
+  },
+  "email_input": "Votre e-mail",
+  "@email_input": {
+    "description": "Label for the email input field"
+  },
+  "email_error_text": "Veuillez entrer une adresse courriel valide",
+  "@email_error_text": {
+    "description": "Error message for the email input field"
+  },
+  "password_input": "Votre mot de passe",
+  "@password_input": {
+    "description": "Label for the password input field"
+  },
+  "password_error_text": "Veuillez saisir un mot de passe d’au moins 6 caractères",
+  "@password_error_text": {
+    "description": "Error message for the password input field"
+  },
+  "password_not_same_error_text": "Les mots de passe doivent être identiques",
+  "@password_not_same_error_text": {
+    "description": "Password must be same as above"
+  },
+  "login_button": "Se connecter",
+  "@login_button": {
+    "description": "Label for the 'sign in' button"
+  },
+  "password_forgot_title": "Mot de passe Oublié ?",
+  "@password_forgot_button": {
+    "description": "Title for password forgot"
+  },
+  "other_login_methods_title": "Ou connectez vous avec ...",
+  "@other_login_methods_title": {
+    "description": "Title for other method login"
+  },
+  "loginWith": "Se connecter avec {provider}",
+  "@loginWith": {
+    "type": "text",
+    "description": "Login with",
+    "placeholders": {
+      "provider": {}
+    }
+  },
+  "no_account_label": "Pas de compte ?",
+  "@no_account_label": {
+    "description": "Label for the no account button"
+  },
+  "@_SIGN_UP_SCREEN": {
+    "description": "Widget sign_up_screen"
+  },
+  "signup_title": "S'inscrire",
+  "@signup_title": {
+    "description": "Title for the signup page"
+  },
+  "signup_detail_title": "Saisir vos informations pour vous inscrire",
+  "@signup_detail_title": {
+    "description": "Add your details to signup"
+  },
+  "name_input": "Votre nom",
+  "@name_input": {
+    "description": "Label for the Name input field"
+  },
+  "mobile_input": "Votre numéro de Mobile ",
+  "@mobile_input": {
+    "description": "Label for the Mobile No input field"
+  },
+  "address_input": "Votre adresse ",
+  "@address_input": {
+    "description": "Label for the Address input field"
+  },
+  "signup_button": "S'inscrire",
+  "@signup_button": {
+    "description": "Label for the sign up button"
+  },
+  "already_an_account_title": "Vous avez déjà un compte ? Connectez Vous",
+  "@already_an_account_title": {
+    "description": "Title for Already have an Account"
+  },
+  "@_ERROR_AUTH": {
+    "description": "message d'erreur lié au compte"
+  },
+  "wrong_password": "Mot de passe incorrect",
+  "@wrong_password": {
+    "description": "Label for wrong password"
+  },
+  "invalid_email": "email invalide",
+  "@invalid_email": {
+    "description": "Label for invalid_email"
+  },
+  "operation_not_allowed": "operation non autorisée",
+  "@operation_not_allowed": {
+    "description": "Label for operation not allowed"
+  },
+  "weak_password": "mot de passe trop faible",
+  "@weak_password": {
+    "description": "Label for weak password"
+  },
+  "network_request_failed": "accés réseau impossible",
+  "@network_request_failed": {
+    "description": "Label for network request failed"
+  },
+  "fill_fields": "Merci de compléter les champs de saisie.",
+  "@fill_fields": {
+    "description": "Label for fill_fields"
+  },
+  "something_wrong": "Erreur inattendue",
+  "@something_wrong": {
+    "description": "Label for fill_fields"
+  },
+  "@_INFO_AUTH": {
+    "description": "message d'information lié au compte"
+  },
+  "login_successful": "Connection réalisé avec succés",
+  "@login_successful": {
+    "description": "Label for Login Successful"
+  },
+  "registration_successs": "Création de compte réalisée avec succés",
+  "@registration_successs": {
+    "description": "Label for Registration Successs"
+  },
+  "user_not_found": "Utilisateur inconnu",
+  "@user_not_found": {
+    "description": "Label for User Not Found"
+  },
+  "translate_not_found": "Echec de traduction du message",
+  "@translate_not_found": {
+    "description": "Label for translate error message"
+  }
+}
