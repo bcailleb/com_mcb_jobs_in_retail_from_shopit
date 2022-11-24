@@ -71,11 +71,22 @@ class $AssetsImagesGen {
   /// File path: assets/images/greentick.svg
   String get greentick => 'assets/images/greentick.svg';
 
+  /// File path: assets/images/icon.png
+  AssetGenImage get iconPng => const AssetGenImage('assets/images/icon.png');
+
   /// File path: assets/images/icon.svg
-  String get icon => 'assets/images/icon.svg';
+  String get iconSvg => 'assets/images/icon.svg';
 
   /// File path: assets/images/image.jpg
   AssetGenImage get image => const AssetGenImage('assets/images/image.jpg');
+
+  /// File path: assets/images/logo_normal.png
+  AssetGenImage get logoNormal =>
+      const AssetGenImage('assets/images/logo_normal.png');
+
+  /// File path: assets/images/logo_rond.png
+  AssetGenImage get logoRond =>
+      const AssetGenImage('assets/images/logo_rond.png');
 
   /// File path: assets/images/logo_white.png
   AssetGenImage get logoWhite =>
@@ -108,8 +119,11 @@ class $AssetsImagesGen {
         google,
         gpay,
         greentick,
-        icon,
+        iconPng,
+        iconSvg,
         image,
+        logoNormal,
+        logoRond,
         logoWhite,
         navicon,
         noOrders,
