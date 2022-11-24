@@ -10,6 +10,7 @@ import '../screens/more_screen.dart';
 import '../widgets/product_widget.dart';
 import 'color_themes.dart';
 
+const String kAppName = 'Jobs in retail';
 const double kAppBarHeight = 80;
 
 const List<Widget> tabScreens = [
