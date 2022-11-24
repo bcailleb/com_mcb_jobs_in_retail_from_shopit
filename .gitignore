@@ -3,6 +3,8 @@
 *.log
 *.pyc
 *.swp
+*.cache
+*.lock
 .DS_Store
 .atom/
 .buildlog/
@@ -46,4 +48,4 @@ app.*.map.json
 /linux
 /macos
 *.cache
-pubspec.lock
+
