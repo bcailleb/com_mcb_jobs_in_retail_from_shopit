@@ -29,7 +29,7 @@ class AccountScreenAppBar extends StatelessWidget with PreferredSizeWidget {
                 horizontal: 10,
               ),
               child: Image.asset(
-                Assets.images.shopit.path,
+                Assets.images.logoNormal.path,
                 height: screenSize.height * 0.04,
               ),
             ),

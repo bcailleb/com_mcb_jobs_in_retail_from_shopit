@@ -66,7 +66,7 @@ class ParentAppBarWidget extends StatelessWidget with PreferredSizeWidget {
             Container(
               height: screenSize.height * .05,
               child: Image.asset(
-                Assets.images.shopit.path,
+                Assets.images.logoNormal.path,
                 fit: BoxFit.cover,
               ),
             ),
