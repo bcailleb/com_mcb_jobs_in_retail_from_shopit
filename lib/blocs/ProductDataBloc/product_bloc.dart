@@ -4,6 +4,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import '../../models/product_model.dart';
 import '../../screens/Product/services/product_services.dart';
+import '../../utils/message_constant.dart';
 import '../../utils/utils.dart';
 
 part 'product_event.dart';
@@ -26,7 +27,7 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
           category: event.category,
           quantity: event.quantity,
         );
-        if (result == 'Registration Successful') {
+        if (result == constRegistrationSuccess) {
           Utils().showsnackBar(
             context: event.context,
             message: result,

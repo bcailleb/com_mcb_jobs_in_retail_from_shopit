@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import '../../models/product_model.dart';
 import '../../screens/add_to_cart/services/add_to_cart_services.dart';
+import '../../utils/message_constant.dart';
 part 'add_to_cart_event.dart';
 part 'add_to_cart_state.dart';
 
@@ -11,7 +12,7 @@ class AddToCartBloc extends Bloc<AddToCartEvent, AddToCartState> {
     on<AddProductToDatabase>((event, emit) async {
       String result =
           await addToCartServices.addProductToCart(event.productModel);
-      if (result == 'Added to cart') {
+      if (result == constAddedToCart) {
         emit(
           ProductUploadedToDatabase(),
         );

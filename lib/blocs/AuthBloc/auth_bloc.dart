@@ -1,11 +1,15 @@
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:meta/meta.dart';
-import '../../layout/screen_layout.dart';
-import '../../resources/auth_methods.dart';
+
 import '../../../screens/signin_screen.dart';
 import '../../../utils/utils.dart';
+import '../../layout/screen_layout.dart';
+import '../../resources/auth_methods.dart';
+import '../../utils/exception_handler.dart';
+import '../../utils/message_constant.dart';
+import '../../utils/translate.dart';
+import '../../utils/notifications.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
@@ -23,22 +27,21 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         email: event.emailId,
         password: event.password,
       );
-      if (result == 'Registration Successful') {
-        Utils().showsnackBar(
-          context: event.context,
-          message: result,
-        );
+
+      if (result == constRegistrationSuccess) {
         Navigator.pushReplacement(
           event.context,
           MaterialPageRoute(
-            builder: (context) => SigninScreen(),
+            builder: (context) => const SigninScreen(),
           ),
         );
-      } else {
-        Utils().showsnackBar(
+        sendSuccessNotification(
           context: event.context,
-          message: result,
+          message: translate(event.context)!.registration_successs,
         );
+      } else {
+        MessageHandler.authErrorAndException(
+            context: event.context, errorMessage: result);
       }
       emit(AuthLoaded());
     });
@@ -50,10 +53,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         email: event.email,
         password: event.password,
       );
-      if (result == 'Login Successful') {
+      if (result == constLoginSucces) {
         Utils().showsnackBar(
           context: event.context,
-          message: result,
+          message: translate(event.context)!.login_successful,
         );
         Navigator.pushReplacement(
           event.context,
@@ -62,11 +65,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           ),
         );
       } else {
-        Utils().showsnackBar(
-          context: event.context,
-          message: result,
-        );
-
+        MessageHandler.authErrorAndException(
+            context: event.context, errorMessage: result);
         emit(AuthLoaded());
       }
     });

@@ -1,7 +1,7 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../models/userdetail_model.dart';
 import '../resources/firestore_methods.dart';
+import '../utils/message_constant.dart';
 
 class AuthMethods {
   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
@@ -16,7 +16,7 @@ class AuthMethods {
     address.trim();
     email.trim();
     password.trim();
-    String output = "Something went wrong";
+    String output = constSomethingWrong;
     if (name != "" && address != "" && email != "" && password != "") {
       try {
         await firebaseAuth.createUserWithEmailAndPassword(
@@ -27,12 +27,12 @@ class AuthMethods {
         );
         await firestoreMethods.uploadUserDetails(user: user);
 
-        output = "Registration Successful";
+        output = constRegistrationSuccess;
       } on FirebaseAuthException catch (e) {
         output = e.message.toString();
       }
     } else {
-      output = "Please fill the required fields.";
+      output = constFillFields;
     }
     return output;
   }
@@ -41,17 +41,17 @@ class AuthMethods {
       {required String email, required String password}) async {
     email.trim();
     password.trim();
-    String output = "Something went wrong";
+    String output = constSomethingWrong;
     if (email != "" && password != "") {
       try {
         await firebaseAuth.signInWithEmailAndPassword(
             email: email, password: password);
-        output = "Login Successful";
+        output = constLoginSucces;
       } on FirebaseAuthException catch (e) {
-        output = e.message.toString();
+        output = e.code.toString();
       }
     } else {
-      output = "Please fill the required fields";
+      output = constFillFields;
     }
     return output;
   }

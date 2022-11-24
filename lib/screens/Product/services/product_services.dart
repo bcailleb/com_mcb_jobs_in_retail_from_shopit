@@ -10,6 +10,7 @@ import '../../../widgets/product_widget.dart';
 import '../../../widgets/result_widgets.dart';
 import 'package:uuid/uuid.dart';
 
+import '../../../utils/message_constant.dart';
 import '../../../resources/storage_methods.dart';
 
 class ProductServices {
@@ -32,11 +33,11 @@ class ProductServices {
   }) async {
     productName.trim();
     rawCost.trim();
-    String output = 'Something went wrong';
+    String output = constSomethingWrong;
 
     if (image != null && productName != null && rawCost != null) {
       try {
-        String productUid = Uuid().v1();
+        String productUid = const Uuid().v1();
         String imageUrl =
             await storageMethods.uploadImageToStorage(productUid, image);
         double cost = double.parse(rawCost);
@@ -57,7 +58,7 @@ class ProductServices {
         );
 
         await firestore
-            .collection('products')
+            .collection(ProductModel.collectionName)
             .doc(productUid)
             .set(product.getJson());
 
@@ -77,8 +78,8 @@ class ProductServices {
     required String description,
     required String productUid,
   }) async {
-    String reviewUid = Uuid().v1();
-    String output = 'Something went wrong';
+    String reviewUid = const Uuid().v1();
+    String output = constSomethingWrong;
     try {
       ReviewModel review = ReviewModel(
         senderName: senderName,
@@ -86,9 +87,9 @@ class ProductServices {
         description: description,
       );
       await firestore
-          .collection('products')
+          .collection(ProductModel.collectionName)
           .doc(productUid)
-          .collection('reviews')
+          .collection(ReviewModel.collectionName)
           .doc(reviewUid)
           .set(review.getJson());
       output = 'Review added sucessfully';
@@ -101,30 +102,29 @@ class ProductServices {
   Future<List<Widget>> getProductDataFromDiscount(int discount) async {
     List<Widget> products = [];
     QuerySnapshot<Map<String, dynamic>> snapshot = await firestore
-        .collection('products')
+        .collection(ProductModel.collectionName)
         .where('discount', isEqualTo: discount)
         .get();
-    snapshot.docs.forEach((snap) {
+    for(var snap in snapshot.docs) {
       ProductModel product = ProductModel.fromJson(snap.data());
       products.add(
         ProductWidget(productModel: product),
       );
-    });
+    }
     return products;
   }
 
   Future<List<Widget>> getProductData() async {
     List<Widget> products = [];
     QuerySnapshot<Map<String, dynamic>> snapshot =
-        await firestore.collection('products').get();
+        await firestore.collection(ProductModel.collectionName).get();
 
-    snapshot.docs.forEach((snap) {
+    for(var snap in snapshot.docs) {
       ProductModel product = ProductModel.fromJson(snap.data());
       products.add(
         ProductWidget(productModel: product),
       );
-    });
-
+    }
     return products;
   }
 
@@ -132,18 +132,18 @@ class ProductServices {
     List<Widget> products = [];
     try {
       QuerySnapshot<Map<String, dynamic>> snapshot = await firestore
-          .collection('products')
+          .collection(ProductModel.collectionName)
           .where('category', isEqualTo: category)
           .get();
 
-      snapshot.docs.forEach((snap) {
+      for(var snap in snapshot.docs) {
         ProductModel product = ProductModel.fromJson(snap.data());
         products.add(
           ResultsWidget(
             product: product,
           ),
         );
-      });
+      }
     } catch (e) {
       print(e.toString());
     }

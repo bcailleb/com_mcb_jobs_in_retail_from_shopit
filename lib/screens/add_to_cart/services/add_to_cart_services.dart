@@ -1,7 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:flutter/material.dart';
+import '../../../models/userdetail_model.dart';
+import '../../../models/cart_model.dart';
+import '../../../utils/logger.dart';
+import '../../../utils/message_constant.dart';
 
 import '../../../models/product_model.dart';
 import '../../../resources/storage_methods.dart';
@@ -16,16 +19,16 @@ class AddToCartServices {
   Future<String> addProductToCart(
     ProductModel productModel,
   ) async {
-    String result = 'Something went wrong';
+    String result = constSomethingWrong;
     try {
       await firestore
-          .collection('users')
+          .collection(UserDetailModel.collectionName)
           .doc(firebaseAuth.currentUser!.uid)
-          .collection('cart')
+          .collection(CartModel.collectionName)
           .doc(productModel.uid)
           .set(productModel.getCartJson());
 
-      result = 'Added to cart';
+      result = constAddedToCart;
     } catch (e) {
       result = e.toString();
     }
@@ -33,12 +36,12 @@ class AddToCartServices {
   }
 
   Future<String> deleteProductFromCart(String uid) async {
-    String result = 'Something went wrong';
+    String result = constSomethingWrong;
     try {
       await firestore
-          .collection('users')
+          .collection(UserDetailModel.collectionName)
           .doc(firebaseAuth.currentUser!.uid)
-          .collection('cart')
+          .collection(CartModel.collectionName)
           .doc(uid)
           .delete();
       result = 'Product deleted sucessfully';
@@ -49,21 +52,19 @@ class AddToCartServices {
   }
 
   Future getSubtotalCartPrice(String uid) async {
-    int sum = 0;
     QuerySnapshot priceData = await firestore
-        .collection('users')
+        .collection(UserDetailModel.collectionName)
         .doc(getUid)
-        .collection('cart')
+        .collection(CartModel.collectionName)
         .where('price')
         .get();
   }
 
   Future<int> getProductQuantity(String productUid) async {
-    int quantity = 0;
     DocumentSnapshot productQuantity = await firestore
-        .collection('users')
+        .collection(UserDetailModel.collectionName)
         .doc(getUid)
-        .collection('cart')
+        .collection(CartModel.collectionName)
         .doc(productUid)
         .get();
     return productQuantity['quantity'];
@@ -74,28 +75,28 @@ class AddToCartServices {
   ) async {
     int quantity = await AddToCartServices().getProductQuantity(productUid);
     await firestore
-        .collection('users')
+        .collection(UserDetailModel.collectionName)
         .doc(getUid)
-        .collection('cart')
+        .collection(CartModel.collectionName)
         .doc(productUid)
         .update({
       'quantity': quantity + 1,
     });
 
-    print(quantity);
+    info(quantity.toString());
   }
 
   Future checkProductinCart(String productUid) async {
     bool isAdded = false;
 
     QuerySnapshot<Map<String, dynamic>> snap = await firestore
-        .collection('users')
+        .collection(UserDetailModel.collectionName)
         .doc(getUid)
-        .collection('cart')
+        .collection(CartModel.collectionName)
         .where('productUid', isEqualTo: productUid)
         .get();
     print(snap.docs.length);
-    if (snap.docs.length != 0) {
+    if (snap.docs.isNotEmpty) {
       isAdded = true;
     } else {
       isAdded = false;
@@ -104,12 +105,12 @@ class AddToCartServices {
   }
 
   Future<String> removeProductQuantity(String uid, int quantity) async {
-    String result = 'Something went wrong';
+    String result = constSomethingWrong;
 
     await firestore
-        .collection('users')
+        .collection(UserDetailModel.collectionName)
         .doc(getUid)
-        .collection('cart')
+        .collection(CartModel.collectionName)
         .doc(uid)
         .update({
       'quantity': quantity - 1,
