@@ -28,3 +28,9 @@ void error(
   Map<String, dynamic> data = const {},
 }) async =>
     logger.e("Error: $message: $data");
+
+void criticalError( // TO DO AJOUTER l'ecriture en Base
+  String message, {
+  Map<String, dynamic> data = const {},
+}) async =>
+    logger.e("Critical Error: $message: $data");
