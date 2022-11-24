@@ -19,6 +19,8 @@ const String constFillFields = 'fill-fields';
 const String constUserNotFound = 'user-not-found';
 const String constWrongPassword = 'wrong-password';
 const String constInvalidEmail = 'invalid-email';
+const String constBadEmail = 'The email address is badly formatted.';
+
 const String constOperationNotAllowed = 'operation-not-allowed';
 const String constWeakPassword = 'weak-password';
 const String constNetworkRequestFailed = 'network-request-failed';

@@ -11,11 +11,10 @@ String pleaseEnterField(BuildContext context, String errorMessage) {
     constEmailInput: translate(context)!.email_input,
     constPasswordInput: translate(context)!.password_input,
     constNameInput: translate(context)!.name_input,
-    'constAddress': translate(context)!.address_input,
+    constAddress: translate(context)!.address_input,
   };
 
-  String message = messages[errorMessage]?? "";
+  String message = messages[errorMessage] ?? "";
 
-
-  return translate(context)!.pleaseEnterField(message.toLowerCase()) ?? "";
+  return translate(context)!.pleaseEnterField(message.toLowerCase());
 }

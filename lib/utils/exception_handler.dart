@@ -31,12 +31,13 @@ class MessageHandler {
       constUserNotFound: translate(context)!.user_not_found,
       constWrongPassword: translate(context)!.wrong_password,
       constInvalidEmail: translate(context)!.invalid_email,
+      constBadEmail: translate(context)!.invalid_email,
       constOperationNotAllowed: translate(context)!.operation_not_allowed,
       constWeakPassword: translate(context)!.weak_password,
       constNetworkRequestFailed: translate(context)!.network_request_failed,
       constFillFields: translate(context)!.fill_fields,
     };
-    message = messages[errorMessage];
+    message = messages[errorMessage] ?? errorMessage;
 
     sendErrorNotification(
       context: context,
