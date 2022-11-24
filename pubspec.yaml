@@ -15,6 +15,9 @@ dependencies:
   firebase_storage: ^11.0.3
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  bloc: ^8.1.0
   flutter_bloc: ^8.0.1
   flutter_svg: ^1.1.0
   google_fonts: ^3.0.1
@@ -24,6 +27,7 @@ dependencies:
   rating_dialog: ^2.0.4
   uuid: ^3.0.6
   logger: ^1.1.0
+  another_flushbar: ^1.12.29
 
 dev_dependencies:
   flutter_lints: ^2.0.0
@@ -34,7 +38,7 @@ dev_dependencies:
     sdk: flutter
 
 flutter:
-
+  generate: true
   uses-material-design: true
 
   assets:
