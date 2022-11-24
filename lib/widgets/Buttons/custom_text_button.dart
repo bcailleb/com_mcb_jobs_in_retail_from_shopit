@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import '../../utils/color_themes.dart';
 
-class textButton extends StatelessWidget {
+class CustomTextButton extends StatelessWidget {
   final String label;
-  VoidCallback onTap;
-  textButton({
+  final VoidCallback onTap;
+  CustomTextButton({
     Key? key,
     required this.label,
     required this.onTap,
