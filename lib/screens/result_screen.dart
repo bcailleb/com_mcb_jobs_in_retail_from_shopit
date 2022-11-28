@@ -36,7 +36,7 @@ class ResultScreen extends StatelessWidget {
               text: TextSpan(
                 children: [
                   TextSpan(
-                    text: 'Showing results for ',
+                    text: 'Résultats pour ',
                     style: buttonTitleStyle.copyWith(
                       fontSize: 17,
                       color: Colors.black,

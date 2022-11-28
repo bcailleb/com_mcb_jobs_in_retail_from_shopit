@@ -51,13 +51,13 @@ class UserDetailsBar extends StatelessWidget {
                     right: 8,
                   ),
                   child: Icon(
-                    Icons.location_on_outlined,
+                    Icons.person,
                     color: Colors.white,
                   ),
                 ),
                 Flexible(
                   child: Text(
-                    'Deliver to ${state.userData.name} - ${state.userData.address}',
+                    '${state.userData.name}',
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: GoogleFonts.abel(

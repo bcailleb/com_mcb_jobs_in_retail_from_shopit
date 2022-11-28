@@ -22,7 +22,7 @@ class CostWidget extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
-          '₹',
+          'Salaire ',
           style: TextStyle(
             fontSize: 10,
             color: color,

@@ -50,6 +50,6 @@ List<Color> backgroundGradient1 = [
   Colors.white,
 ];
 const List<Color> lightBackgroundaGradient = [
-  Color(0xff122636),
-  Color.fromARGB(255, 29, 78, 115),
+  Color(0xff596137),
+  Color(0xff596137),
 ];

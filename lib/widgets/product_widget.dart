@@ -66,12 +66,23 @@ class ProductWidget extends StatelessWidget {
                     ),
                   ),
                   Flexible(
+                    flex: 1,
+                    child: Text(
+                      productModel.category,
+                      textAlign: TextAlign.center,
+                      style: productNameStyle,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                  Flexible(
                       flex: 1,
                       child: CostWidget(
                         color: priceColor,
                         cost: productModel.price,
                         textSize: 18,
-                      )),
+                      )
+                  ),
                 ],
               )),
         ),

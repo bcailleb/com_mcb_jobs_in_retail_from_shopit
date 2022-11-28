@@ -12,7 +12,7 @@ import '../utils/utils.dart';
 class SearchBarWidget extends StatelessWidget with PreferredSizeWidget {
   final bool isReadOnly;
   final bool hasBackButton;
-  ScreenLayout screenLayout = ScreenLayout();
+  final ScreenLayout screenLayout =  ScreenLayout();
 
   SearchBarWidget({
     Key? key,
@@ -79,7 +79,7 @@ class SearchBarWidget extends StatelessWidget with PreferredSizeWidget {
                 decoration: InputDecoration(
                   border: border,
                   focusedBorder: border,
-                  hintText: 'Search for products',
+                  hintText: 'Rechercher une offre',
                   hintStyle: const TextStyle(
                     color: Colors.black,
                   ),
