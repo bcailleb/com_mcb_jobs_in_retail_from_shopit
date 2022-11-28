@@ -10,7 +10,7 @@ import '../blocs/UserDataBloc/firestore_bloc.dart';
 import '../utils/color_themes.dart';
 import '../utils/constants.dart';
 import '../utils/utils.dart';
-import '../widgets/Buttons/primary_button.dart';
+import '../widgets/Buttons/primary_widget_button.dart';
 import '../widgets/textfield_widget.dart';
 
 class SellScreen extends StatefulWidget {
@@ -60,7 +60,7 @@ class _SellScreenState extends State<SellScreen> {
                   child: Center(
                     child: Column(
                       children: [
-                        Container(
+                        SizedBox(
                           height: screenSize.width / 2.5,
                           width: screenSize.width / 2.5,
                           child: Stack(
@@ -290,7 +290,7 @@ class _SellScreenState extends State<SellScreen> {
                           builder: (context, firestoreState) {
                             return BlocBuilder<ProductBloc, ProductState>(
                               builder: (context, state) {
-                                return PrimaryButton(
+                                return PrimaryWidgetButton(
                                   color: buttonColor,
                                   isLoading: false,
                                   onPressed: () async {
@@ -327,7 +327,7 @@ class _SellScreenState extends State<SellScreen> {
                         SizedBox(
                           height: screenSize.height * .01,
                         ),
-                        PrimaryButton(
+                        PrimaryWidgetButton(
                           color: lightbuttonColor,
                           isLoading: false,
                           onPressed: () {

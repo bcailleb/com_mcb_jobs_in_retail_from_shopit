@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:com_mcb_jobs_in_retail_from_shopit/utils/logger.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +36,7 @@ class ProductServices {
     rawCost.trim();
     String output = constSomethingWrong;
 
-    if (image != null && productName != null && rawCost != null) {
+    if (image != null) {
       try {
         String productUid = const Uuid().v1();
         String imageUrl =
@@ -145,7 +146,7 @@ class ProductServices {
         );
       }
     } catch (e) {
-      print(e.toString());
+      info(e.toString());
     }
     return products;
   }

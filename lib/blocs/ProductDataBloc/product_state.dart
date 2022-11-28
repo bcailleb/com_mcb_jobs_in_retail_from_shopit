@@ -4,8 +4,8 @@ part of 'product_bloc.dart';
 
 @immutable
 abstract class ProductState extends Equatable {
-  List<Widget>? productData;
-  ProductState({
+  final List<Widget>? productData;
+  const ProductState({
     this.productData,
   });
 
@@ -24,7 +24,7 @@ class ProductUploaded extends ProductState {
 }
 
 class ProductLoaded extends ProductState {
-  ProductLoaded({required super.productData});
+  const ProductLoaded({required super.productData});
 
   @override
   List<Object> get props => [productData!];

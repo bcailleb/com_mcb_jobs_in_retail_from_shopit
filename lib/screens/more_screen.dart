@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../utils/constants.dart';
 import '../widgets/category_widget.dart';
-import '../widgets/parent_appBar_widget.dart';
+import '../widgets/parent_appbar_widget.dart';
 
 class MoreScreen extends StatelessWidget {
   const MoreScreen({Key? key}) : super(key: key);

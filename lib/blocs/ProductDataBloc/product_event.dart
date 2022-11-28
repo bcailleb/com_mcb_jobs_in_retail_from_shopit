@@ -3,24 +3,24 @@ part of 'product_bloc.dart';
 
 @immutable
 abstract class ProductEvent {
-  ProductModel? productModel;
-  ProductEvent({
+  final ProductModel? productModel;
+  const ProductEvent({
     this.productModel,
   });
 }
 
 class UploadProductEvent extends ProductEvent {
-  Uint8List? image;
-  String productName;
-  String rawCost;
-  int productDiscount;
-  List<dynamic> productDescription;
-  String sellerName;
-  String sellerUid;
-  String category;
-  int quantity;
-  BuildContext context;
-  UploadProductEvent({
+  final Uint8List? image;
+  final String productName;
+  final String rawCost;
+  final int productDiscount;
+  final List<dynamic> productDescription;
+  final String sellerName;
+  final String sellerUid;
+  final String category;
+  final int quantity;
+  final BuildContext context;
+  const UploadProductEvent({
     required this.image,
     required this.productName,
     required this.rawCost,

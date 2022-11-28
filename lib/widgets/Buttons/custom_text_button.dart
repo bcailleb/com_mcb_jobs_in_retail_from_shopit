@@ -4,7 +4,7 @@ import '../../utils/color_themes.dart';
 class CustomTextButton extends StatelessWidget {
   final String label;
   final VoidCallback onTap;
-  CustomTextButton({
+  const CustomTextButton({
     Key? key,
     required this.label,
     required this.onTap,

@@ -7,8 +7,8 @@ import '../screens/Order/services/order_services.dart';
 import '../screens/sell_screen.dart';
 import '../utils/color_themes.dart';
 import '../utils/constants.dart';
-import '../widgets/account_screen_appBar.dart';
-import '../widgets/Buttons/primary_button.dart';
+import '../widgets/account_screen_appbar.dart';
+import '../widgets/Buttons/primary_widget_button.dart';
 import '../widgets/product_show_list.dart';
 
 import '../utils/utils.dart';
@@ -33,10 +33,10 @@ class _AccountScreenState extends State<AccountScreen> {
           height: screenSize.height,
           width: screenSize.width,
           child: Column(children: [
-           const  UserIntroWidget(),
+            const UserIntroWidget(),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: PrimaryButton(
+              child: PrimaryWidgetButton(
                 color: buttonColor,
                 isLoading: false,
                 onPressed: () {
@@ -47,7 +47,7 @@ class _AccountScreenState extends State<AccountScreen> {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: PrimaryButton(
+              child: PrimaryWidgetButton(
                 color: lightbuttonColor,
                 isLoading: false,
                 onPressed: () {
@@ -63,35 +63,34 @@ class _AccountScreenState extends State<AccountScreen> {
             ),
             const Divider(),
             Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  child: StreamBuilder(
-                    stream: OrderServices().showOrdersToUser(),
-                    builder: (context, AsyncSnapshot<List<Widget>> snapshot) {
-                      if (!snapshot.hasData) {
-                        return const Center(
-                          child: CircularProgressIndicator(
-                            color: buttonColor,
-                          ),
-                        );
-                      }
-                      // print(snapshot.data!.docs[0].data());
-                      // List<Widget> orderedProducts = [];
+              padding: const EdgeInsets.all(8.0),
+              child: StreamBuilder(
+                stream: OrderServices().showOrdersToUser(),
+                builder: (context, AsyncSnapshot<List<Widget>> snapshot) {
+                  if (!snapshot.hasData) {
+                    return const Center(
+                      child: CircularProgressIndicator(
+                        color: buttonColor,
+                      ),
+                    );
+                  }
+                  // print(snapshot.data!.docs[0].data());
+                  // List<Widget> orderedProducts = [];
 
-                      // snapshot.data!.docs.forEach((snap) {
-                      //   ProductModel product =
-                      //       ProductModel.fromJson(snap.data());
-                      //   orderedProducts.add(
-                      //     ProductWidget(productModel: product),
-                      //   );
-                      // });
-                      return ProductsShowCase(
-                        title: "Your Orders",
-                        children: snapshot.data,
-                      );
-                    },
-                  ),
-                )),
+                  // snapshot.data!.docs.forEach((snap) {
+                  //   ProductModel product =
+                  //       ProductModel.fromJson(snap.data());
+                  //   orderedProducts.add(
+                  //     ProductWidget(productModel: product),
+                  //   );
+                  // });
+                  return ProductsShowCase(
+                    title: "Your Orders",
+                    children: snapshot.data,
+                  );
+                },
+              ),
+            ),
             const Divider(),
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -112,14 +111,15 @@ class _AccountScreenState extends State<AccountScreen> {
                     itemBuilder: (context, index) {
                       return ListTile(
                         title: Text(
-                          'Order ${index}: Realme Narzo 6',
+                          'Order $index : Realme Narzo 6',
                           style: GoogleFonts.actor(
                             fontSize: 15,
                             fontWeight: FontWeight.w300,
                             color: Colors.black,
                           ),
                         ),
-                        subtitle: const Text('Address- Deopa Building, near chungi'),
+                        subtitle:
+                            const Text('Address- Deopa Building, near chungi'),
                         trailing: IconButton(
                           onPressed: () {},
                           icon: const Icon(
@@ -152,7 +152,7 @@ class UserIntroWidget extends StatelessWidget {
           end: Alignment.topCenter,
         ),
       ),
-      child: Container(
+      child: SizedBox(
         height: kAppBarHeight,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -201,7 +201,8 @@ class UserIntroWidget extends StatelessWidget {
               child: CircleAvatar(
                 radius: 30,
                 backgroundImage: NetworkImage(
-                  'https://images.unsplash.com/photo-1655949595981-f1d8e8739cdf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2802&q=80',
+                  'https://firebasestorage.googleapis.com/v0/b/jobs-in-retail.appspot.com/o/products%2F13ec6db0-5890-11ed-8577-f5137ecd9e0a?alt=media&token=14cd8dec-779d-46d9-866b-4a8a8236c047',
+                  // 'https://images.unsplash.com/photo-1655949595981-f1d8e8739cdf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2802&q=80',
                 ),
               ),
             ),

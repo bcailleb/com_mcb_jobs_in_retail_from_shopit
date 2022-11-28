@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:com_mcb_jobs_in_retail_from_shopit/utils/logger.dart';
 import 'package:equatable/equatable.dart';
 import '../../models/product_model.dart';
 import '../../screens/add_to_cart/services/add_to_cart_services.dart';
@@ -17,7 +18,7 @@ class AddToCartBloc extends Bloc<AddToCartEvent, AddToCartState> {
           ProductUploadedToDatabase(),
         );
       } else {
-        print(result);
+        info(result);
       }
     });
 

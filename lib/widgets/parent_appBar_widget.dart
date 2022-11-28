@@ -16,7 +16,7 @@ import '../utils/utils.dart';
 import 'bubble_icon_widget.dart';
 
 class ParentAppBarWidget extends StatelessWidget with PreferredSizeWidget {
-  ScreenLayout screenLayout = ScreenLayout();
+  final ScreenLayout screenLayout =  ScreenLayout();
   final bool hasBack;
 
   ParentAppBarWidget({
@@ -32,7 +32,7 @@ class ParentAppBarWidget extends StatelessWidget with PreferredSizeWidget {
   Widget build(BuildContext context) {
     Size screenSize = Utils().getScreenSize();
 
-    return Container(
+    return SizedBox(
       width: screenSize.width,
       height: kAppBarHeight * 1.4,
       child: SafeArea(
@@ -63,7 +63,7 @@ class ParentAppBarWidget extends StatelessWidget with PreferredSizeWidget {
                       color: Colors.black,
                     ),
                   ),
-            Container(
+            SizedBox(
               height: screenSize.height * .05,
               child: Image.asset(
                 Assets.images.logoNormal.path,
@@ -83,11 +83,11 @@ class ParentAppBarWidget extends StatelessWidget with PreferredSizeWidget {
                 }
                 return BubbleIcon(
                   iconName: Icon(
-                    Icons.shopping_bag_outlined,
+                    Icons.pages,
                     size: screenSize.height * 0.03,
                   ),
                   iconValue:
-                      snapshot.data!.docs == 0 || snapshot.data!.docs.length < 7
+                      snapshot.data!.docs.isEmpty || snapshot.data!.docs.length < 7
                           ? snapshot.data!.docs.length.toString()
                           : '6+',
                   onPress: () {},

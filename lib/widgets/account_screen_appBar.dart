@@ -14,7 +14,7 @@ class AccountScreenAppBar extends StatelessWidget with PreferredSizeWidget {
   Widget build(BuildContext context) {
     Size screenSize = Utils().getScreenSize();
 
-    return Container(
+    return SizedBox(
       height: kAppBarHeight * 1.3,
       width: screenSize.width,
       child: Padding(

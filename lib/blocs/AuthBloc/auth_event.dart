@@ -5,11 +5,11 @@ part of 'auth_bloc.dart';
 abstract class AuthEvent {}
 
 class SignUpUserEvent extends AuthEvent {
-  String name;
-  String emailId;
-  String password;
-  String address;
-  BuildContext context;
+  final String name;
+  final String emailId;
+  final String password;
+  final String address;
+  final BuildContext context;
   SignUpUserEvent({
     required this.name,
     required this.emailId,
@@ -20,9 +20,9 @@ class SignUpUserEvent extends AuthEvent {
 }
 
 class SigninUserEvent extends AuthEvent {
-  String password;
-  String email;
-  BuildContext context;
+  final String password;
+  final String email;
+  final BuildContext context;
 
   SigninUserEvent({
     required this.password,

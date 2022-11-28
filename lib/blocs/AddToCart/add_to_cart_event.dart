@@ -9,31 +9,31 @@ abstract class AddToCartEvent extends Equatable {
 }
 
 class AddProductToDatabase extends AddToCartEvent {
-  ProductModel productModel;
-  AddProductToDatabase({
+  final ProductModel productModel;
+  const AddProductToDatabase({
     required this.productModel,
   });
 }
 
 class DeleteProductFromCart extends AddToCartEvent {
-  String uid;
-  DeleteProductFromCart({
+  final String uid;
+  const DeleteProductFromCart({
     required this.uid,
   });
 }
 
 class AddProductQuantityinCart extends AddToCartEvent {
-  String productUid;
-  ProductModel productModel;
-  AddProductQuantityinCart({
+  final String productUid;
+  final ProductModel productModel;
+  const AddProductQuantityinCart({
     required this.productUid,
     required this.productModel,
   });
 }
 
 class RemoveProductQuantityinCart extends AddToCartEvent {
-  String productUid;
-  RemoveProductQuantityinCart({
+  final String productUid;
+  const RemoveProductQuantityinCart({
     required this.productUid,
   });
 }

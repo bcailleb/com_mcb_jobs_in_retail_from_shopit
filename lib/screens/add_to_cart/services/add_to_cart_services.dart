@@ -58,6 +58,7 @@ class AddToCartServices {
         .collection(CartModel.collectionName)
         .where('price')
         .get();
+        return priceData;
   }
 
   Future<int> getProductQuantity(String productUid) async {
@@ -95,7 +96,7 @@ class AddToCartServices {
         .collection(CartModel.collectionName)
         .where('productUid', isEqualTo: productUid)
         .get();
-    print(snap.docs.length);
+    info(snap.docs.length.toString());
     if (snap.docs.isNotEmpty) {
       isAdded = true;
     } else {

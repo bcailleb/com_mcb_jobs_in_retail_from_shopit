@@ -1,28 +1,23 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../blocs/AddToCart/add_to_cart_bloc.dart';
 
 import '../../models/product_model.dart';
-import '../../models/review_model.dart';
 import '../../utils/color_themes.dart';
 import '../../utils/constants.dart';
 import '../../utils/utils.dart';
-import '../../widgets/Buttons/custom_rounded_button.dart';
-import '../../widgets/Buttons/primary_button.dart';
+import '../../widgets/Buttons/primary_widget_button.dart';
 import '../../../widgets/cost_widget.dart';
-import '../../widgets/parent_appBar_widget.dart';
+import '../../widgets/parent_appbar_widget.dart';
 import '../../widgets/rating_star_widget.dart';
-import '../../widgets/review_dialog.dart';
-import '../../widgets/review_widget.dart';
 
 import '../../widgets/user_details_bar.dart';
 
 class ProductScreen extends StatefulWidget {
   final ProductModel productModel;
-  bool isPressed = false;
-  ProductScreen({
+  final bool isPressed = false;
+  const ProductScreen({
     Key? key,
     required this.productModel,
   }) : super(key: key);
@@ -91,7 +86,7 @@ class _ProductScreenState extends State<ProductScreen> {
                       ],
                     ),
                   ),
-                  Container(
+                  SizedBox(
                     height: screenSize.height * 0.4,
                     child: Image.network(
                       widget.productModel.imgUrl,
@@ -105,15 +100,17 @@ class _ProductScreenState extends State<ProductScreen> {
                   SizedBox(
                     height: screenSize.width * .05,
                   ),
-                  PrimaryButton(
+/*                  PrimaryButton(
                     color: buttonColor,
                     isLoading: false,
                     onPressed: () {},
                     child: const Text('Buy Now'),
                   ),
+
+ */
                   sizedBox,
-                  PrimaryButton(
-                    color: lightbuttonColor,
+                  PrimaryWidgetButton(
+                    color: appColor1,
                     isLoading: false,
                     onPressed: () async {
                       context.read<AddToCartBloc>().add(
@@ -122,38 +119,36 @@ class _ProductScreenState extends State<ProductScreen> {
                                 productModel: widget.productModel),
                           );
                     },
-                    child: const Text('Add to Cart'),
+                    child: const Text('Ajouter au favoris'),
                   ),
                   const Divider(),
                   sizedBox,
                   Text(
-                    'About this item',
+                    'A propos de cette Offre',
                     style: headingStyle,
                   ),
                   sizedBox,
-                  Container(
-                    child: ListView.builder(
-                        shrinkWrap: true,
-                        primary: false,
-                        itemCount: widget.productModel.description.length,
-                        itemBuilder: (context, index) {
-                          return Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                '\u2022 ${widget.productModel.description[index]}',
-                                style: headingStyle.copyWith(fontSize: 12),
-                                maxLines: 3,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                              sizedBox,
-                            ],
-                          );
-                        }),
-                  ),
+                  ListView.builder(
+                      shrinkWrap: true,
+                      primary: false,
+                      itemCount: widget.productModel.description.length,
+                      itemBuilder: (context, index) {
+                        return Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              '\u2022 ${widget.productModel.description[index]}',
+                              style: headingStyle.copyWith(fontSize: 12),
+                              maxLines: 3,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            sizedBox,
+                          ],
+                        );
+                      }),
                   sizedBox,
-                  CustomRoundedButton(
+/*                  CustomRoundedButton(
                     buttonTitle: 'Add a review for this product',
                     onPressed: () {
                       showDialog(
@@ -166,6 +161,8 @@ class _ProductScreenState extends State<ProductScreen> {
                     color: Colors.white,
                     textColor: Colors.black,
                   ),
+
+
                   sizedBox,
                   SizedBox(
                       child: StreamBuilder(
@@ -202,7 +199,7 @@ class _ProductScreenState extends State<ProductScreen> {
                                             reviewModel: reviewModel);
                                       });
                             }
-                          }))
+                          })) */
                 ],
               ),
             ),

@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 
 import '../utils/color_themes.dart';
 import '../utils/constants.dart';
+import '../utils/logger.dart';
 
 class ScreenLayout extends StatefulWidget {
-  int currentPage;
-  ScreenLayout({
+   int currentPage;
+   ScreenLayout({
     Key? key,
     this.currentPage = 0,
   }) : super(key: key);
@@ -25,7 +26,7 @@ class _ScreenLayoutState extends State<ScreenLayout> {
   }
 
   changePage(int page) {
-    print(widget.currentPage);
+    info(widget.currentPage.toString());
     pageController.jumpToPage(page);
     setState(() {
       widget.currentPage = page;
@@ -67,7 +68,7 @@ class _ScreenLayoutState extends State<ScreenLayout> {
                     color: widget.currentPage == 0 ? buttonColor : buttonColor,
                   ),
                 ),
-                Tab(
+/*                Tab(
                   child: Icon(
                     widget.currentPage == 1
                         ? Icons.shopping_cart
@@ -75,6 +76,8 @@ class _ScreenLayoutState extends State<ScreenLayout> {
                     color: widget.currentPage == 1 ? buttonColor : buttonColor,
                   ),
                 ),
+
+ */
                 Tab(
                   child: Icon(
                     widget.currentPage == 2

@@ -5,8 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../blocs/ProductDataBloc/product_bloc.dart';
 import '../screens/Product/services/product_services.dart';
 import '../utils/constants.dart';
-import '../widgets/banner_widget.dart';
-import '../widgets/parent_appBar_widget.dart';
+import '../widgets/parent_appbar_widget.dart';
 import '../widgets/product_show_list.dart';
 import '../widgets/user_details_bar.dart';
 
@@ -60,23 +59,23 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: kAppBarHeight / 2,
                 ),
                 const CategoriesView(),
-                const BannerAdWidget(),
+               // const BannerAdWidget(),
                 BlocBuilder<ProductBloc, ProductState>(
                   builder: (context, state) {
                     if (state is ProductLoading) {
-                      return ProductsShowCase(
+                      return const ProductsShowCase(
                         title: '',
                         isLoading: true,
-                        children: const [],
+                        children: [],
                       );
                     }
                     return ProductsShowCase(
-                      title: 'Latest Products',
+                      title: 'Dernières Offres',
                       children: state.productData!,
                     );
                   },
                 ),
-                const ShowProductsWithDiscountWidget(
+/*                const ShowProductsWithDiscountWidget(
                   discount: 50,
                   title: '50% Off Sale',
                 ),
@@ -88,6 +87,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   discount: 70,
                   title: 'Shopit Bumper Sale',
                 ),
+
+ */
               ]),
             ),
             UserDetailsBar(
@@ -115,10 +116,10 @@ class ShowProductsWithDiscountWidget extends StatelessWidget {
         future: ProductServices().getProductDataFromDiscount(discount),
         builder: (context, AsyncSnapshot snapshot) {
           if (!snapshot.hasData) {
-            return ProductsShowCase(
+            return const ProductsShowCase(
               title: '',
               isLoading: true,
-              children: const [],
+              children: [],
             );
           }
           return ProductsShowCase(

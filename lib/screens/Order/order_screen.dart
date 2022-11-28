@@ -9,9 +9,10 @@ import '../../screens/Order/services/order_services.dart';
 import '../../screens/order_result_screen.dart';
 import '../../utils/color_themes.dart';
 import '../../utils/constants.dart';
+import '../../utils/logger.dart';
 import '../../utils/utils.dart';
 import '../../widgets/address_widget.dart';
-import '../../widgets/parent_appBar_widget.dart';
+import '../../widgets/parent_appbar_widget.dart';
 import '../../widgets/textfield_widget.dart';
 
 final _addressFormKey = GlobalKey<FormState>();
@@ -126,7 +127,7 @@ class _OrderScreenState extends State<OrderScreen> {
     } else {
       throw Exception('Error');
     }
-    print(addressDetails);
+    info(addressDetails.toString());
   }
 
   @override
@@ -141,7 +142,7 @@ class _OrderScreenState extends State<OrderScreen> {
         body: Stack(
           children: [
             widget.isLoading
-                ? Container(
+                ? SizedBox(
                     height: screenSize.height,
                     child: const Center(
                       child: CircularProgressIndicator(

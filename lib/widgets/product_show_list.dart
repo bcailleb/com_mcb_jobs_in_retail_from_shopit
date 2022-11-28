@@ -9,8 +9,8 @@ import '../utils/utils.dart';
 class ProductsShowCase extends StatelessWidget {
   final String? title;
   final List<Widget>? children;
-  bool isLoading;
-  ProductsShowCase({
+  final bool isLoading;
+  const ProductsShowCase({
     Key? key,
     this.isLoading = false,
     this.title,
@@ -50,7 +50,7 @@ class ProductsShowCase extends StatelessWidget {
                         left: 14,
                       ),
                       child: Text(
-                        'View more',
+                        '...',
                         style: linkButtonStyle,
                       ),
                     )
