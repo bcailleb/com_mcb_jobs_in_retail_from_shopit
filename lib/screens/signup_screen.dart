@@ -1,19 +1,22 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-
 import 'package:com_mcb_jobs_in_retail_from_shopit/gen/assets.gen.dart';
+import 'package:com_mcb_jobs_in_retail_from_shopit/utils/extension/list_space_between.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import '../blocs/AuthBloc/auth_bloc.dart';
 import '../resources/auth_methods.dart';
 import '../screens/signin_screen.dart';
 
 import '../utils/color_themes.dart';
 
+import '../utils/constants.dart';
 import '../utils/message_constant.dart';
 import '../utils/translate.dart';
 import '../utils/utils.dart';
-import '../widgets/Buttons/primary_button.dart';
+import '../widgets/Buttons/primary_text_button.dart';
+// ignore: unused_import
+import '../widgets/Buttons/primary_widget_button.dart';
 import '../widgets/Buttons/custom_text_button.dart';
 import '../widgets/textfield_widget.dart';
 
@@ -46,160 +49,88 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: SizedBox(
-          height: screenSize.height,
-          width: screenSize.width,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-            child: Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: Assets.images.bg.provider(),
-                  fit: BoxFit.cover,
+      body: Center(
+        child: SingleChildScrollView(
+          padding: EdgeInsets.all(
+            kDefaultPadding,
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              Hero(
+                tag: 1,
+                child: Image.asset(Assets.images.logoNormal.path,
+                    height: Adaptive.h(15)),
+              ),
+              Text(
+                translate(context)!.signup_title,
+                style: GoogleFonts.aleo(
+                    fontSize: kTextTitleFontSize,
+                    fontWeight: FontWeight.w700,
+                    color: appColor1),
+              ),
+              TextFieldWidget(
+                title: translate(context)!.name_input,
+                controller: nameController,
+                obsecureText: false,
+                hintText: pleaseEnterField(context, constNameInput),
+              ),
+              TextFieldWidget(
+                title: translate(context)!.address_input,
+                controller: addressController,
+                obsecureText: false,
+                hintText: pleaseEnterField(context, constAddress),
+              ),
+              TextFieldWidget(
+                title: translate(context)!.email_input,
+                controller: emailController,
+                obsecureText: false,
+                hintText: pleaseEnterField(context, constEmailInput),
+              ),
+              TextFieldWidget(
+                title: translate(context)!.password_input,
+                controller: passwordController,
+                obsecureText: true,
+                hintText: pleaseEnterField(context, constPasswordInput),
+              ),
+              Hero(
+                tag: 2,
+                child: BlocBuilder<AuthBloc, AuthState>(
+                  builder: (context, state) {
+                    return PrimaryTextButton(
+                      color: buttonColor,
+                      isLoading: state is AuthLoading ? true : false,
+                      onPressed: () async {
+                        context.read<AuthBloc>().add(
+                              SignUpUserEvent(
+                                name: nameController.text,
+                                emailId: emailController.text,
+                                password: passwordController.text,
+                                address: addressController.text,
+                                context: context,
+                              ),
+                            );
+                      },
+                      text: translate(context)!.signup_button,
+                    );
+                  },
                 ),
               ),
-              alignment: Alignment.center,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Hero(
-                    tag: 1,
-                    child: Image.asset(
-                      Assets.images.logoNormal.path,
-                      height: screenSize.height * 0.09,
+              CustomTextButton(
+                label: translate(context)!.already_an_account_title,
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SigninScreen(),
                     ),
-                  ),
-                  SizedBox(
-                    height: screenSize.height * 0.7,
-                    child: FittedBox(
-                      child: Container(
-                        height: screenSize.height * 0.85,
-                        width: screenSize.width * 0.9,
-                        padding: const EdgeInsets.all(10),
-                        decoration: const BoxDecoration(),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text(
-                              translate(context)!.signup_title,
-                              style: GoogleFonts.aleo(
-                                fontSize: 26,
-                                fontWeight: FontWeight.w700,
-                              ),
-                            ),
-                            TextFieldWidget(
-                              title: translate(context)!.name_input,
-                              controller: nameController,
-                              obsecureText: false,
-                              hintText: pleaseEnterField(context,constNameInput),
-                            ),
-                            TextFieldWidget(
-                              title: translate(context)!.address_input,
-                              controller: addressController,
-                              obsecureText: false,
-                              hintText: pleaseEnterField(context,constAddress),
-                            ),
-                            TextFieldWidget(
-                              title: translate(context)!.email_input,
-                              controller: emailController,
-                              obsecureText: false,
-                              hintText:  pleaseEnterField(context,constEmailInput),
-                            ),
-                            TextFieldWidget(
-                              title: translate(context)!.password_input,
-                              controller: passwordController,
-                              obsecureText: true,
-                              hintText: pleaseEnterField(context,constPasswordInput),
-                            ),
-                            Center(
-                              child: Hero(
-                                tag: 2,
-                                child: BlocBuilder<AuthBloc, AuthState>(
-                                  builder: (context, state) {
-                                    return PrimaryButton(
-                                      color: buttonColor,
-                                      isLoading:
-                                          state is AuthLoading ? true : false,
-                                      onPressed: () async {
-                                        context.read<AuthBloc>().add(
-                                              SignUpUserEvent(
-                                                name: nameController.text,
-                                                emailId: emailController.text,
-                                                password:
-                                                    passwordController.text,
-                                                address: addressController.text,
-                                                context: context,
-                                              ),
-                                            );
-                                      },
-                                      child: Text(
-                                        translate(context)!.signup_button,
-                                        style: const TextStyle(
-                                          fontSize: 15,
-                                        ),
-                                      ),
-                                    );
-                                  },
-                                ),
-                              ),
-                            ),
-                            CustomTextButton(
-                              label: translate(context)!.already_an_account_title,
-                              onTap: () {
-                                Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const SigninScreen(),
-                                  ),
-                                );
-                              },
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
+                  );
+                },
               ),
-            ),
+            ].withSpaceBetween(height: kDefaultPadding),
           ),
         ),
       ),
     );
   }
 }
-
-
-                                          // setState(() {
-                                          //   isLoading = true;
-                                          // });
-                                          // String output =
-                                          //     await authMethods.signUpUser(
-                                          //         name: nameController.text,
-                                          //         address: addressController.text,
-                                          //         email: emailController.text,
-                                          //         password: passwordController.text);
-                                          // if (output == constRegistrationSuccess) {
-                                          //   Utils().showsnackBar(
-                                          //     context: context,
-                                          //     message: output,
-                                          //   );
-                                          //   Navigator.pushReplacement(
-                                          //     context,
-                                          //     MaterialPageRoute(
-                                          //       builder: (context) => SigninScreen(),
-                                          //     ),
-                                          //   );
-                                          // } else {
-                                          //   Utils().showsnackBar(
-                                          //     context: context,
-                                          //     message: output,
-                                          //   );
-                                          // }
-                                          // setState(() {
-                                          //   isLoading = false;
-                                          // });

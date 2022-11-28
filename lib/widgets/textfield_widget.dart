@@ -1,6 +1,6 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../utils/constants.dart';
 
 class TextFieldWidget extends StatefulWidget {
   final String title;
@@ -36,7 +36,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
           child: Text(
             widget.title,
             style: GoogleFonts.aleo(
-              fontSize: 18,
+              fontSize: kTextFieldFontSize,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -49,7 +49,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
               hintText: widget.hintText,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(4),
-                borderSide:const BorderSide(
+                borderSide: const BorderSide(
                   color: Colors.grey,
                   width: 1,
                 ),

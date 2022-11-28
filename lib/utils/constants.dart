@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import '../gen/assets.gen.dart';
 import '../screens/account_screen.dart';
-import '../screens/add_to_cart/cart_screen.dart';
 import '../screens/home_screen.dart';
 
 import '../models/product_model.dart';
@@ -12,21 +12,29 @@ import 'color_themes.dart';
 
 const String kAppName = 'Jobs in retail';
 const double kAppBarHeight = 80;
+// Padding par defaut
+ double kDefaultPadding =Adaptive.h(4); // 16.0;
+
+// Font Size
+double kButtonFontSIze = 14.sp;
+double kTextTitleFontSize = 15.sp;
+double kTextFontSize = 14.sp;
+double kTextFieldFontSize = 14.sp;
 
 const List<Widget> tabScreens = [
   HomeScreen(),
-  CartScreen(),
+  // CartScreen(),
   AccountScreen(),
   MoreScreen(),
 ];
 
 const List<String> categoriesList = [
-  "Mobiles",
-  "Fashion",
-  "Electronics",
-  "Appliances",
-  "Books",
-  "Others"
+  "Maroquinerie",
+  "Prêt-à-porter",
+  "Optique",
+  "Lingerie",
+  "Beauté Cosmétique",
+  "Autre"
 ];
 
 List<String> categoryLogos = [
