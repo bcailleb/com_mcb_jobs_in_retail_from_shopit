@@ -8,7 +8,7 @@ import '../screens/home_screen.dart';
 
 import '../models/product_model.dart';
 import '../screens/more_screen.dart';
-import '../widgets/product_widget.dart';
+import '../components/product_widget.dart';
 import 'color_themes.dart';
 
 const String kAppName = 'Jobs in retail';

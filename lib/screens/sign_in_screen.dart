@@ -12,10 +12,10 @@ import '../utils/constants.dart';
 import '../utils/message_constant.dart';
 import '../utils/translate.dart';
 import '../gen/assets.gen.dart';
-import '../widgets/Button/primary_text_button.dart';
-import '../widgets/text/text_sub_tittle_widget.dart';
-import '../widgets/text/text_tittle_widget.dart';
-import '../widgets/text_field/text_field_widget.dart';
+import '../components/Button/primary_text_button.dart';
+import '../components/text/text_sub_tittle_widget.dart';
+import '../components/text/text_tittle_widget.dart';
+import '../components/text_field/text_field_widget.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({Key? key}) : super(key: key);

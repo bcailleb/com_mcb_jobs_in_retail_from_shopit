@@ -1,14 +1,13 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:com_mcb_jobs_in_retail_from_shopit/components/rating_star_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../models/product_model.dart';
 import '../screens/Product/product_screen.dart';
 import '../utils/color_themes.dart';
 import '../utils/constants.dart';
-import '../widgets/cost_widget.dart';
-import '../widgets/rating_star_widget.dart';
 
 import '../utils/utils.dart';
+import 'cost_widget.dart';
 
 class ResultsWidget extends StatelessWidget {
   final ProductModel product;

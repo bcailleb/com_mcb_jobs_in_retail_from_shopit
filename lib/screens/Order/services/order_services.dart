@@ -1,13 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:uuid/uuid.dart';
+import '../../../components/product_widget.dart';
 import '../../../models/address_model.dart';
 import '../../../models/order_model.dart';
 import '../../../models/cart_model.dart';
 import '../../../models/product_model.dart';
 import '../../../models/userdetail_model.dart';
-import '../../../widgets/product_widget.dart';
-import 'package:uuid/uuid.dart';
 
 class OrderServices {
   FirebaseAuth firebaseAuth = FirebaseAuth.instance;

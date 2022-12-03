@@ -4,11 +4,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../blocs/ProductDataBloc/product_bloc.dart';
 import '../screens/Product/services/product_services.dart';
 import '../utils/constants.dart';
-import '../widgets/parent_appbar_widget.dart';
-import '../widgets/product_show_list.dart';
-import '../widgets/user_details_bar.dart';
+import '../components/parent_appbar_widget.dart';
+import '../components/product_show_list.dart';
+import '../components/user_details_bar.dart';
 
-import '../widgets/categories_view.dart';
+import '../components/categories_view.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);

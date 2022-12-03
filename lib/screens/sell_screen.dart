@@ -11,8 +11,8 @@ import '../blocs/UserDataBloc/firestore_bloc.dart';
 import '../utils/color_themes.dart';
 import '../utils/constants.dart';
 import '../utils/utils.dart';
-import '../widgets/Button/primary_widget_button.dart';
-import '../widgets/text_field/text_field_widget.dart';
+import '../components/Button/primary_widget_button.dart';
+import '../components/text_field/text_field_widget.dart';
 
 class SellScreen extends StatefulWidget {
   const SellScreen({Key? key}) : super(key: key);

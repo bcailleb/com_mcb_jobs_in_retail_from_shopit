@@ -1,9 +1,8 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
 import '../models/review_model.dart';
 import '../utils/constants.dart';
-import '../widgets/rating_star_widget.dart';
+import '../components/rating_star_widget.dart';
 
 import '../utils/utils.dart';
 

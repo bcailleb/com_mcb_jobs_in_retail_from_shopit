@@ -1,12 +1,12 @@
-import 'package:com_mcb_jobs_in_retail_from_shopit/widgets/text/text_widget.dart';
+import 'package:com_mcb_jobs_in_retail_from_shopit/components/text/text_widget.dart';
 import 'package:flutter/material.dart';
 import '../../utils/color_themes.dart';
 import '../../utils/constants.dart';
 
-class TextSubTitleWidget extends StatelessWidget {
+class TextTitleWidget extends StatelessWidget {
   final String title;
 
-  const TextSubTitleWidget({
+  const TextTitleWidget({
     Key? key,
     required this.title,
   }) : super(key: key);
@@ -16,7 +16,7 @@ class TextSubTitleWidget extends StatelessWidget {
     return TextWidget(
         title: title,
         alignment: Alignment.center,
-        fontSize: kTextSubTitleFontSize,
+        fontSize: kTextTitleFontSize,
         fontColor: appColor1);
   }
 }

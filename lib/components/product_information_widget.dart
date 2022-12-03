@@ -1,10 +1,10 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import '../utils/color_themes.dart';
 import '../utils/constants.dart';
-import '../widgets/cost_widget.dart';
+
 
 import '../utils/utils.dart';
+import 'cost_widget.dart';
 
 class ProductInformationWidget extends StatelessWidget {
   final String productName;

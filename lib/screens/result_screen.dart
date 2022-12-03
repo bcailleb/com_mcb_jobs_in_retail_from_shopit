@@ -3,8 +3,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import '../utils/color_themes.dart';
 import '../utils/constants.dart';
-import '../widgets/result_widgets.dart';
-import '../widgets/searchbar_widget.dart';
+import '../components/result_widgets.dart';
+import '../components/searchbar_widget.dart';
 
 import '../models/product_model.dart';
 

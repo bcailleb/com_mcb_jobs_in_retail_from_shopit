@@ -1,5 +1,5 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:com_mcb_jobs_in_retail_from_shopit/components/product_information_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,9 +12,8 @@ import '../screens/Product/product_screen.dart';
 import '../utils/color_themes.dart';
 import '../utils/constants.dart';
 import '../utils/utils.dart';
-import '../widgets/Button/custom_rounded_button.dart';
-import '../widgets/Button/custom_square_button.dart';
-import '../widgets/product_information_widget.dart';
+import '../components/Button/custom_rounded_button.dart';
+import '../components/Button/custom_square_button.dart';
 
 class CartItemWidget extends StatelessWidget {
   final ProductModel product;

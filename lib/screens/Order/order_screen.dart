@@ -11,9 +11,9 @@ import '../../utils/color_themes.dart';
 import '../../utils/constants.dart';
 import '../../utils/logger.dart';
 import '../../utils/utils.dart';
-import '../../widgets/address_widget.dart';
-import '../../widgets/parent_appbar_widget.dart';
-import '../../widgets/text_field/text_field_widget.dart';
+import '../../components/address_widget.dart';
+import '../../components/parent_appbar_widget.dart';
+import '../../components/text_field/text_field_widget.dart';
 
 final _addressFormKey = GlobalKey<FormState>();
 

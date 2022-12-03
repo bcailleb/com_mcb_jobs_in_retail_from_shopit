@@ -7,9 +7,9 @@ import '../screens/Order/services/order_services.dart';
 import '../screens/sell_screen.dart';
 import '../utils/color_themes.dart';
 import '../utils/constants.dart';
-import '../widgets/account_screen_appbar.dart';
-import '../widgets/button/primary_widget_button.dart';
-import '../widgets/product_show_list.dart';
+import '../components/account_screen_appbar.dart';
+import '../components/button/primary_widget_button.dart';
+import '../components/product_show_list.dart';
 
 import '../utils/utils.dart';
 

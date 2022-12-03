@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../blocs/AddToCart/add_to_cart_bloc.dart';
 
+import '../../components/cost_widget.dart';
 import '../../models/product_model.dart';
 import '../../utils/color_themes.dart';
 import '../../utils/constants.dart';
 import '../../utils/utils.dart';
-import '../../widgets/button/primary_widget_button.dart';
-import '../../../widgets/cost_widget.dart';
-import '../../widgets/parent_appbar_widget.dart';
-import '../../widgets/rating_star_widget.dart';
+import '../../components/button/primary_widget_button.dart';
+import '../../components/parent_appbar_widget.dart';
+import '../../components/rating_star_widget.dart';
 
-import '../../widgets/user_details_bar.dart';
+import '../../components/user_details_bar.dart';
 
 class ProductScreen extends StatefulWidget {
   final ProductModel productModel;

@@ -1,16 +1,15 @@
 import 'dart:typed_data';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:com_mcb_jobs_in_retail_from_shopit/utils/logger.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import '../../../models/product_model.dart';
-import '../../../models/review_model.dart';
-import '../../../widgets/product_widget.dart';
-import '../../../widgets/result_widgets.dart';
 import 'package:uuid/uuid.dart';
 
+import '../../../components/product_widget.dart';
+import '../../../components/result_widgets.dart';
+import '../../../models/product_model.dart';
+import '../../../models/review_model.dart';
 import '../../../utils/message_constant.dart';
 import '../../../resources/storage_methods.dart';
 

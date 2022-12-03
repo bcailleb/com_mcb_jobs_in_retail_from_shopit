@@ -14,10 +14,10 @@ import '../utils/constants.dart';
 import '../utils/message_constant.dart';
 import '../utils/translate.dart';
 import '../utils/utils.dart';
-import '../widgets/button/custom_text_button.dart';
-import '../widgets/button/primary_text_button.dart';
-import '../widgets/text/text_tittle_widget.dart';
-import '../widgets/text_field/text_field_widget.dart';
+import '../components/button/custom_text_button.dart';
+import '../components/button/primary_text_button.dart';
+import '../components/text/text_tittle_widget.dart';
+import '../components/text_field/text_field_widget.dart';
 
 
 class SignUpScreen extends StatefulWidget {

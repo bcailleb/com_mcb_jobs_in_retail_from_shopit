@@ -1,6 +1,7 @@
-import 'package:com_mcb_jobs_in_retail_from_shopit/widgets/button/primary_widget_button.dart';
+
 import 'package:flutter/material.dart';
 import '../../utils/constants.dart';
+import '../../components/Button/primary_widget_button.dart';
 
 class PrimaryTextButton extends StatelessWidget {
   final String text;
