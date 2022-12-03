@@ -12,8 +12,8 @@ import '../screens/Product/product_screen.dart';
 import '../utils/color_themes.dart';
 import '../utils/constants.dart';
 import '../utils/utils.dart';
-import '../widgets/Buttons/custom_rounded_button.dart';
-import '../widgets/Buttons/custom_square_button.dart';
+import '../widgets/Button/custom_rounded_button.dart';
+import '../widgets/Button/custom_square_button.dart';
 import '../widgets/product_information_widget.dart';
 
 class CartItemWidget extends StatelessWidget {

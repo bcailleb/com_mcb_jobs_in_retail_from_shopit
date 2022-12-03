@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import '../../../screens/signin_screen.dart';
+import '../../../screens/sign_in_screen.dart';
 import '../../../utils/utils.dart';
 import '../../layout/screen_layout.dart';
 import '../../resources/auth_methods.dart';
@@ -32,7 +32,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         Navigator.pushReplacement(
           event.context,
           MaterialPageRoute(
-            builder: (context) => const SigninScreen(),
+            builder: (context) => const SignInScreen(),
           ),
         );
         sendSuccessNotification(

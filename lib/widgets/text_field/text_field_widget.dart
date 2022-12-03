@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import '../utils/constants.dart';
+import '../../utils/color_themes.dart';
+import '../../utils/constants.dart';
 
 class TextFieldWidget extends StatefulWidget {
   final String title;
@@ -35,7 +35,8 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
           ),
           child: Text(
             widget.title,
-            style: GoogleFonts.aleo(
+            style: TextStyle(
+              fontFamily: kDefaultFont,
               fontSize: kTextFieldFontSize,
               fontWeight: FontWeight.bold,
             ),
@@ -47,6 +48,8 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
           maxLines: 1,
           decoration: InputDecoration(
               hintText: widget.hintText,
+              hintStyle: TextStyle(
+                  fontFamily: kDefaultFont, fontSize: kTextFieldHintFontSize,color: appColor3),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(4),
                 borderSide: const BorderSide(

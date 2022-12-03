@@ -6,7 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import '../blocs/AuthBloc/auth_bloc.dart';
 import '../resources/auth_methods.dart';
-import '../screens/signin_screen.dart';
+import '../screens/sign_in_screen.dart';
 
 import '../utils/color_themes.dart';
 
@@ -14,11 +14,11 @@ import '../utils/constants.dart';
 import '../utils/message_constant.dart';
 import '../utils/translate.dart';
 import '../utils/utils.dart';
-import '../widgets/Buttons/primary_text_button.dart';
-// ignore: unused_import
-import '../widgets/Buttons/primary_widget_button.dart';
-import '../widgets/Buttons/custom_text_button.dart';
-import '../widgets/textfield_widget.dart';
+import '../widgets/button/custom_text_button.dart';
+import '../widgets/button/primary_text_button.dart';
+import '../widgets/text/text_tittle_widget.dart';
+import '../widgets/text_field/text_field_widget.dart';
+
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -62,12 +62,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 child: Image.asset(Assets.images.logoNormal.path,
                     height: Adaptive.h(15)),
               ),
-              Text(
-                translate(context)!.signup_title,
-                style: GoogleFonts.aleo(
-                    fontSize: kTextTitleFontSize,
-                    fontWeight: FontWeight.w700,
-                    color: appColor1),
+              TextTitleWidget(title:
+                translate(context)!.sign_up_title
               ),
               TextFieldWidget(
                 title: translate(context)!.name_input,
@@ -111,7 +107,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               ),
                             );
                       },
-                      text: translate(context)!.signup_button,
+                      text: translate(context)!.sign_up_button,
                     );
                   },
                 ),
@@ -122,7 +118,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const SigninScreen(),
+                      builder: (context) => const SignInScreen(),
                     ),
                   );
                 },

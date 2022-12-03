@@ -1,3 +1,5 @@
+# fluttergen => fiabilisation des assets
+# flutter packages pub run build_runner build --delete-conflicting-outputs
 name: com_mcb_jobs_in_retail_from_shopit
 description: A new Flutter project.
 version: 1.0.0+1
@@ -47,6 +49,8 @@ flutter:
     - assets/categories/
     - assets/images/
   fonts:
-    - family: Metropolis
+    - family: Syncopate
       fonts:
-        - asset: assets/fonts/Metropolis-Bold.otf
+        - asset: assets/fonts/Syncopate-Regular.ttf
+        - asset: assets/fonts/Syncopate-Bold.ttf
+

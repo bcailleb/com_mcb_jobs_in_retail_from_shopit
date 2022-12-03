@@ -1,4 +1,4 @@
-import 'package:com_mcb_jobs_in_retail_from_shopit/widgets/Buttons/primary_widget_button.dart';
+import 'package:com_mcb_jobs_in_retail_from_shopit/widgets/button/primary_widget_button.dart';
 import 'package:flutter/material.dart';
 import '../../utils/constants.dart';
 
@@ -26,7 +26,8 @@ class PrimaryTextButton extends StatelessWidget {
       child: Text(
         text,
         style: TextStyle(
-          fontSize: kButtonFontSIze, // 16.sp,
+          fontFamily: kDefaultFont,
+          fontSize: kButtonFontSize, // 16.sp,
         ),
       ),
     );

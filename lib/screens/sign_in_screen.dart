@@ -6,24 +6,25 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import '../blocs/AuthBloc/auth_bloc.dart';
-import '../screens/signup_screen.dart';
+import '../screens/sign_up_screen.dart';
 import '../utils/color_themes.dart';
 import '../utils/constants.dart';
 import '../utils/message_constant.dart';
 import '../utils/translate.dart';
-import '../widgets/Buttons/primary_text_button.dart';
-import '../widgets/Buttons/primary_widget_button.dart';
-import '../widgets/textfield_widget.dart';
 import '../gen/assets.gen.dart';
+import '../widgets/Button/primary_text_button.dart';
+import '../widgets/text/text_sub_tittle_widget.dart';
+import '../widgets/text/text_tittle_widget.dart';
+import '../widgets/text_field/text_field_widget.dart';
 
-class SigninScreen extends StatefulWidget {
-  const SigninScreen({Key? key}) : super(key: key);
+class SignInScreen extends StatefulWidget {
+  const SignInScreen({Key? key}) : super(key: key);
 
   @override
-  State<SigninScreen> createState() => _SigninScreenState();
+  State<SignInScreen> createState() => _SignInScreenState();
 }
 
-class _SigninScreenState extends State<SigninScreen> {
+class _SignInScreenState extends State<SignInScreen> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   bool isLoading = false;
@@ -51,13 +52,7 @@ class _SigninScreenState extends State<SigninScreen> {
                 child: Image.asset(Assets.images.logoNormal.path,
                     height: Adaptive.h(15)),
               ),
-              Text(
-                translate(context)!.login_title,
-                style: GoogleFonts.aleo(
-                    fontSize: kTextTitleFontSize,
-                    fontWeight: FontWeight.w700,
-                    color: appColor1),
-              ),
+              TextTitleWidget(title: translate(context)!.sign_in_title),
               TextFieldWidget(
                 title: translate(context)!.email_input,
                 controller: emailController,
@@ -91,13 +86,7 @@ class _SigninScreenState extends State<SigninScreen> {
                   },
                 ),
               ),
-              Text(
-                translate(context)!.no_account_label,
-                style: GoogleFonts.acme(
-                  color: buttonColor,
-                  fontSize: kTextFontSize,
-                ),
-              ),
+              TextSubTitleWidget(title: translate(context)!.no_account_label),
               PrimaryTextButton(
                 color: appColor3,
                 isLoading: false,
@@ -109,9 +98,9 @@ class _SigninScreenState extends State<SigninScreen> {
                     ),
                   );
                 },
-                text: translate(context)!.signup_title,
+                text: translate(context)!.sign_up_button,
               ),
-              ].withSpaceBetween(height: kDefaultPadding),
+            ].withSpaceBetween(height: kDefaultPadding),
           ),
         ),
       ),

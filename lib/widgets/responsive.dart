@@ -4,7 +4,7 @@ import 'package:com_mcb_jobs_in_retail_from_shopit/utils/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import '../layout/screen_layout.dart';
-import '../screens/signin_screen.dart';
+import '../screens/sign_in_screen.dart';
 import '../utils/color_themes.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -55,7 +55,7 @@ class Home extends StatelessWidget {
           } else if (user.hasData) {
             return  ScreenLayout();
           } else {
-            return const SigninScreen();
+            return const SignInScreen();
           }
         });
   }

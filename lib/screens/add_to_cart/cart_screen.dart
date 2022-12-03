@@ -7,8 +7,8 @@ import '../../models/cart_model.dart';
 import '../../screens/Order/order_screen.dart';
 import '../../utils/color_themes.dart';
 import '../../utils/constants.dart';
+import '../../widgets/Button/primary_widget_button.dart';
 import '../../widgets/cart_item_widget.dart';
-import '../../widgets/Buttons/primary_widget_button.dart';
 import '../../widgets/parent_appbar_widget.dart';
 import '../../widgets/user_details_bar.dart';
 

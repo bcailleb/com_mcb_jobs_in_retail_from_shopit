@@ -8,7 +8,7 @@ import '../screens/sell_screen.dart';
 import '../utils/color_themes.dart';
 import '../utils/constants.dart';
 import '../widgets/account_screen_appbar.dart';
-import '../widgets/Buttons/primary_widget_button.dart';
+import '../widgets/button/primary_widget_button.dart';
 import '../widgets/product_show_list.dart';
 
 import '../utils/utils.dart';

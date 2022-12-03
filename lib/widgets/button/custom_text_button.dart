@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../utils/color_themes.dart';
+import '../../utils/constants.dart';
 
 class CustomTextButton extends StatelessWidget {
   final String label;
@@ -17,9 +18,10 @@ class CustomTextButton extends StatelessWidget {
         onTap: onTap,
         child: Text(
           label,
-          style: const TextStyle(
+          style:  TextStyle(
             color: buttonColor,
-            fontSize: 15,
+            fontFamily: kDefaultFont,
+            fontSize: kCustomButtonFontSize,
             fontWeight: FontWeight.bold,
           ),
         ),

@@ -44,12 +44,12 @@
   "@_LOGIN_SCREEN": {
     "description": "Widget login_screen et sign_up_screenn"
   },
-  "login_title": "Connection",
-  "@login_title": {
+  "sign_in_title": "Connection",
+  "@sign_in_title": {
     "description": "Title for the sign in up page"
   },
-  "login_detail_title": "Add your details to login",
-  "@login_detail_title": {
+  "sign_in_detail_title": "Add your details to login",
+  "@sign_in_detail_title": {
     "description": "Add your details to login"
   },
   "email_input": "Your E-mail",
@@ -96,15 +96,16 @@
   "@no_account_label": {
     "description": "Label for the no account button"
   },
+
   "@_SIGN_UP_SCREEN": {
     "description": "Widget sign_up_screen"
   },
-  "signup_title": "S'inscrire",
-  "@signup_title": {
+  "sign_up_title": "Sign up",
+  "@sign_up_title": {
     "description": "Title for the sign up page"
   },
-  "signup_detail_title": "Add your details to signup",
-  "@signup_detail_title": {
+  "sign_up_detail_title": "Add your details to signup",
+  "@sign_up_detail_title": {
     "description": "Add your details to signup"
   },
   "name_input": "Your name",
@@ -119,8 +120,8 @@
   "@address_input": {
     "description": "Label for the Address input field"
   },
-  "signup_button": "S'inscrire",
-  "@signup_button": {
+  "sign_up_button": "S'inscrire",
+  "@sign_up_button": {
     "description": "Label for the sign up button"
   },
   "already_an_account_title": "Already have an Account ?",

@@ -7,7 +7,7 @@ import '../../models/product_model.dart';
 import '../../utils/color_themes.dart';
 import '../../utils/constants.dart';
 import '../../utils/utils.dart';
-import '../../widgets/Buttons/primary_widget_button.dart';
+import '../../widgets/button/primary_widget_button.dart';
 import '../../../widgets/cost_widget.dart';
 import '../../widgets/parent_appbar_widget.dart';
 import '../../widgets/rating_star_widget.dart';

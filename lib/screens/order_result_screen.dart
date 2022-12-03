@@ -6,7 +6,7 @@ import '../blocs/UserDataBloc/firestore_bloc.dart';
 import '../layout/screen_layout.dart';
 import '../utils/color_themes.dart';
 import '../utils/constants.dart';
-import '../widgets/Buttons/primary_widget_button.dart';
+import '../widgets/button/primary_widget_button.dart';
 import '../gen/assets.gen.dart';
 class OrderResultScreen extends StatelessWidget {
   const OrderResultScreen({Key? key}) : super(key: key);

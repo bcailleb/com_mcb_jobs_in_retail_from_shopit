@@ -36,7 +36,7 @@ class _ScreenLayoutState extends State<ScreenLayout> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 4,
+      length: tabScreens.length,
       initialIndex: widget.currentPage,
       child: Scaffold(
         body: PageView(

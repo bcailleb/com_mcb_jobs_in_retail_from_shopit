@@ -10,6 +10,6 @@
 class FontFamily {
   FontFamily._();
 
-  /// Font family: Metropolis
-  static const String metropolis = 'Metropolis';
+  /// Font family: Syncopate
+  static const String syncopate = 'Syncopate';
 }
