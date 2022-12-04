@@ -1,5 +1,6 @@
 // ignore_for_file: unused_import
 
+import '../components/text_field/text_input_component.dart';
 import '../utils/extension/list_space_between.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -53,16 +54,20 @@ class _SignInScreenState extends State<SignInScreen> {
                     height: Adaptive.h(15)),
               ),
               TextTitleWidget(title: translate(context)!.sign_in_title),
-              TextFieldWidget(
-                title: translate(context)!.email_input,
+              TextInputComponent(
                 controller: emailController,
-                obsecureText: false,
-                hintText: pleaseEnterField(context, constNameInput),
+                textInputType:kInputTypeEmail,
+                title: translate(context)!.email_input,
+                isRequire: true,
+                errorText: translate(context)!.email_error_text,
+                hintText: pleaseEnterField(context, constEmailInput),
               ),
-              TextFieldWidget(
-                title: translate(context)!.password_input,
+              TextInputComponent(
                 controller: passwordController,
-                obsecureText: true,
+                textInputType:kInputTypePassword,
+                title: translate(context)!.password_input,
+                isRequire: true,
+                errorText: translate(context)!.password_error_text,
                 hintText: pleaseEnterField(context, constPasswordInput),
               ),
               Hero(

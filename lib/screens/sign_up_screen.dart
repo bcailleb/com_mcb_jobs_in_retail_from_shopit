@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import '../blocs/AuthBloc/auth_bloc.dart';
+import '../components/text_field/text_input_component.dart';
 import '../resources/auth_methods.dart';
 import '../screens/sign_in_screen.dart';
 
@@ -65,28 +66,35 @@ class _SignUpScreenState extends State<SignUpScreen> {
               TextTitleWidget(title:
                 translate(context)!.sign_up_title
               ),
-              TextFieldWidget(
-                title: translate(context)!.name_input,
+              TextInputComponent(
                 controller: nameController,
-                obsecureText: false,
+                title: translate(context)!.name_input,
+                isRequire :true,
+                minCharacters : 3,
                 hintText: pleaseEnterField(context, constNameInput),
               ),
-              TextFieldWidget(
-                title: translate(context)!.address_input,
+              TextInputComponent(
                 controller: addressController,
-                obsecureText: false,
+                title: translate(context)!.address_input,
+                isRequire :true,
+                minCharacters : 3,
                 hintText: pleaseEnterField(context, constAddress),
               ),
-              TextFieldWidget(
-                title: translate(context)!.email_input,
+              TextInputComponent(
                 controller: emailController,
-                obsecureText: false,
-                hintText: pleaseEnterField(context, constEmailInput),
+                textInputType:kInputTypeEmail,
+                title: translate(context)!.email_input,
+                  isRequire: true,
+                  errorText: translate(context)!.email_error_text,
+                  hintText: pleaseEnterField(context, constEmailInput),
+
               ),
-              TextFieldWidget(
-                title: translate(context)!.password_input,
+              TextInputComponent(
                 controller: passwordController,
-                obsecureText: true,
+                textInputType:kInputTypePassword,
+                title: translate(context)!.password_input,
+                isRequire: true,
+                errorText: translate(context)!.password_error_text,
                 hintText: pleaseEnterField(context, constPasswordInput),
               ),
               Hero(

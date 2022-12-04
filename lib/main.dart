@@ -1,4 +1,3 @@
-import 'package:com_mcb_jobs_in_retail_from_shopit/widgets/responsive.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +11,7 @@ import '../resources/auth_methods.dart';
 import '../resources/firestore_methods.dart';
 import '../screens/Product/services/product_services.dart';
 import '../screens/add_to_cart/services/add_to_cart_services.dart';
+import 'components/responsive.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -45,21 +45,22 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MultiRepositoryProvider(
+      providers: [
+        RepositoryProvider(
+          create: (context) => AuthMethods(),
+        ),
+        RepositoryProvider(
+          create: (context) => ProductServices(),
+        ),
+        RepositoryProvider(
+          create: (context) => FirestoreMethods(),
+        ),
+        RepositoryProvider(
+          create: (context) => AddToCartServices(),
+        ),
+      ],
+      child: MultiBlocProvider(
         providers: [
-          RepositoryProvider(
-            create: (context) => AuthMethods(),
-          ),
-          RepositoryProvider(
-            create: (context) => ProductServices(),
-          ),
-          RepositoryProvider(
-            create: (context) => FirestoreMethods(),
-          ),
-          RepositoryProvider(
-            create: (context) => AddToCartServices(),
-          ),
-        ],
-        child: MultiBlocProvider(providers: [
           BlocProvider(
             create: (context) => AuthBloc(
               RepositoryProvider.of<AuthMethods>(context),
@@ -80,6 +81,9 @@ class _MyAppState extends State<MyApp> {
               RepositoryProvider.of<AddToCartServices>(context),
             ),
           )
-        ], child: const Responsive()));
+        ],
+        child: const Responsive(),
+      ),
+    );
   }
 }

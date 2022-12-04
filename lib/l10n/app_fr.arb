@@ -17,6 +17,14 @@
       "fieldName": {}
     }
   },
+  "minCharactersField": "Le champ doit contenir à minima '{minCharacters}' caractères",
+  "@minCharactersField": {
+    "type": "text",
+    "description": "Named Mandatory field",
+    "placeholders": {
+      "minCharacters": {}
+    }
+  },
   "pleaseEnterField": "Veuillez saisir {fieldName}",
   "@pleaseEnterField": {
     "type": "text",
@@ -56,7 +64,7 @@
   "@email_input": {
     "description": "Label for the email input field"
   },
-  "email_error_text": "Veuillez entrer une adresse courriel valide",
+  "email_error_text": "Veuillez saisir un email valide",
   "@email_error_text": {
     "description": "Error message for the email input field"
   },

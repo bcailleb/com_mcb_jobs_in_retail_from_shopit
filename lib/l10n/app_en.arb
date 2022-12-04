@@ -17,6 +17,14 @@
       "fieldName": {}
     }
   },
+  "minCharactersField": "Le champ doit contenir à minima '{minCharacters}' caractères",
+  "@minCharactersField": {
+    "type": "text",
+    "description": "Named Mandatory field",
+    "placeholders": {
+      "minCharacters": {}
+    }
+  },
   "pleaseEnterField": "Please Enter {fieldName}",
   "@pleaseEnterField": {
     "type": "text",

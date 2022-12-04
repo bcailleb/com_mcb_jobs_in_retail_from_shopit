@@ -18,6 +18,7 @@ const double kAppBarHeight = 80;
  const String kDefaultFont = FontFamily.syncopate;
 
 // Custom Widget properties
+
 // Button
 double kButtonFontSize = 14.sp;
 double kCustomButtonFontSize = 12.sp;
@@ -27,9 +28,14 @@ double kTextFieldFontSize = 14.sp;
 double kTextFieldHintFontSize = 12.sp;
 
 // Text
+const String kInputTypeNormal= 'Normal';
+const String kInputTypeEmail= 'Email';
+const String kInputTypePassword= 'Password';
+
 double kTextTitleFontSize = 15.sp;
 double kTextSubTitleFontSize = 13.sp;
 double kTextFontSize = 14.sp;
+
 
 const List<Widget> tabScreens = [
   HomeScreen(),
